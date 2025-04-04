@@ -61,18 +61,18 @@ const App = () => {
 
 		// Real time pcm audio bytes being played back, in format of Float32Array
 		// only available when emitRawAudioSamples is true
-		retellWebClient.on('audio', (audio) => {
+		retellWebClient.on('audio', (_audio) => {
 			// console.log(audio);
 		});
 
 		// Update message such as transcript
 		// You can get transcrit with update.transcript
 		// Please note that transcript only contains last 5 sentences to avoid the payload being too large
-		retellWebClient.on('update', (update) => {
+		retellWebClient.on('update', (_update) => {
 			// console.log(update);
 		});
 
-		retellWebClient.on('metadata', (metadata) => {
+		retellWebClient.on('metadata', (_metadata) => {
 			// console.log(metadata);
 		});
 
