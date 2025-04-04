@@ -101,9 +101,9 @@ const App = () => {
 
 	async function registerCall(agentId: string): Promise<RegisterCallResponse> {
 		try {
-			const urlBase = 'https://f3a1-181-199-58-33.ngrok-free.app/api/aiconnect/3mt';
+			const urlBase = 'http://82.180.161.223:4000';
 			// Update the URL to match the new backend endpoint you created
-			const response = await fetch(`${urlBase}`, {
+			const response = await fetch(`${urlBase}/api/aiconnect/3mt`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
