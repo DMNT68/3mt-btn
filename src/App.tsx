@@ -101,8 +101,8 @@ const App = () => {
 
 	async function registerCall(agentId: string): Promise<RegisterCallResponse> {
 		try {
-			const urlBase = 'http://82.180.161.223:4000';
-			// Update the URL to match the new backend endpoint you created
+			const urlBase = 'https://aiconnect.flec-ec.com';
+
 			const response = await fetch(`${urlBase}/api/aiconnect/3mt`, {
 				method: 'POST',
 				headers: {
