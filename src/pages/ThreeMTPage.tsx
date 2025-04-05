@@ -10,9 +10,10 @@ export const ThreeMTPage = () => {
 	return (
 		<div className="app-container">
 			<CallButton
+				isCalling={isCalling}
 				label={isCalling ? 'Stop call' : 'Ask an expert'}
 				onClick={toggleCall}
-				className={isCalling ? 'btn-stopCall' : 'btn-startCall'}
+				className={isCalling ? 'btn-stopCall' : 'btn-startCall-3mt'}
 			/>
 		</div>
 	);
