@@ -1,11 +1,13 @@
 import CallButton from '../components/CallButton';
 import { useCall } from '../hooks/useCall';
 import '../assets/styles.css';
+import { ClientAiConnect } from '../types';
 
-const agentId = 'agent_135eb156acf01166991e4b8576';
+const agentId = 'agent_04a04b623c46dbe6d96d472a4b';
+const client: ClientAiConnect = 'workshopcity';
 
 export const WorkShopCityPage = () => {
-	const { isCalling, toggleCall } = useCall(agentId);
+	const { isCalling, toggleCall } = useCall(agentId, client);
 
 	return (
 		<div className="app-container">

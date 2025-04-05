@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { RetellWebClient } from 'retell-client-js-sdk';
 import { registerCall } from '../services/callService';
+import { ClientAiConnect } from '../types';
 
 const retellWebClient = new RetellWebClient();
 
-export const useCall = (agentId: string) => {
+export const useCall = (agentId: string, client: ClientAiConnect) => {
 	const [isCalling, setIsCalling] = useState(false);
 
 	useEffect(() => {
@@ -29,7 +30,7 @@ export const useCall = (agentId: string) => {
 		if (isCalling) {
 			retellWebClient.stopCall();
 		} else {
-			const { data } = await registerCall(agentId);
+			const { data } = await registerCall(agentId, client);
 			if (data.access_token) {
 				await retellWebClient.startCall({ accessToken: data.access_token });
 				setIsCalling(true);

@@ -4,6 +4,8 @@ export interface RegisterCallResponse {
 	data: CallData;
 }
 
+export type ClientAiConnect = '3mt' | 'workshopcity';
+
 interface CallData {
 	call_id: string;
 	call_type: string;
