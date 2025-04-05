@@ -1,4 +1,3 @@
-import React from 'react';
 import { Route, Routes } from 'react-router';
 import { ThreeMTPage } from '../pages/ThreeMTPage';
 import { WorkShopCityPage } from '../pages/WorkShopCityPage';
