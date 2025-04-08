@@ -9,8 +9,6 @@ const client: ClientAiConnect = '3mt';
 
 export const ThreeMTPage = () => {
 	const { isCalling, toggleCall, isLoading } = useCall(agentId, client);
-	console.log('isCalling', isCalling);
-	console.log('isLoading', isLoading);
 	return (
 		<div className="app-container">
 			<LiquidButton
