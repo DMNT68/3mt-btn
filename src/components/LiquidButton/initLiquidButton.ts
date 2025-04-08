@@ -25,7 +25,7 @@ export function initLiquidButton(button: HTMLDivElement) {
 	let mouseSpeedX = 0,
 		mouseSpeedY = 0;
 
-	const buttonRect = button.getBoundingClientRect();
+	// const buttonRect = button.getBoundingClientRect();
 	const buttonWidth = button.offsetWidth;
 	const buttonHeight = button.offsetHeight;
 
