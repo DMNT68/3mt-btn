@@ -1,6 +1,5 @@
 import { ClientAiConnect, RegisterCallResponse } from '../types';
 
-
 const urlBase = 'https://aiconnect.flec-ec.com';
 
 /**
