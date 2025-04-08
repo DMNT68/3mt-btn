@@ -7,14 +7,14 @@ const agentId = 'agent_cc8cdff47ded40be040f26932c';
 const client: ClientAiConnect = 'workshopcity';
 
 export const WorkShopCityPage = () => {
-	const { isCalling, toggleCall } = useCall(agentId, client);
+	const { isCalling, toggleCall, isLoading } = useCall(agentId, client);
 
 	return (
 		<div className="app-container">
 			<CallButton
 				isCalling={isCalling}
-				label={isCalling ? 'Stop call' : 'Ask an expert'}
-				onClick={toggleCall}
+				label={isLoading ? 'Calling...' : isCalling ? 'Stop call' : 'Ask an expert'}
+				onClick={isLoading ? () => {} : toggleCall}
 				className={isCalling ? 'btn-stopCall' : 'btn-startCall-wsc'}
 			/>
 		</div>
