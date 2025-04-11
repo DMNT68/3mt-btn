@@ -1,8 +1,14 @@
 body {
-	margin: 0;
+  width: 210px;
+	margin: 5px;
+}
+
+#root {
+  width: 210px;
 }
 
 .app-container {
+  width: 210px;
 	text-align: center;
 }
 
