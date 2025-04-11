@@ -1,50 +1,54 @@
+body {
+	margin: 0;
+}
+
 .app-container {
-    text-align: center;
+	text-align: center;
 }
 
 button {
-    width: 200px;
-    font-size: 1.1rem;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+	width: 200px;
+	font-size: 1.1rem;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background 0.3s ease, transform 0.2s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
 }
-  
-  /* Botón para iniciar llamada */
-  .btn-startCall-3mt {
-    background-color: #3075bc;
-    color: white;
-  }
-  
-  .btn-startCall-3mt:hover {
-    background-color: #1863af;
-    transform: scale(1.03);
-  }
 
-  .btn-startCall-wsc {
-    background-color: #fa9500;
-    color: white;
-  }
-  
-  .btn-startCall-wsc:hover {
-    background-color: #fca421;
-    transform: scale(1.03);
-  }
-  
-  /* Botón para detener llamada */
-  .btn-stopCall {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .btn-stopCall:hover {
-    background-color: #e53935;
-    transform: scale(1.03);
-  }
+/* Botón para iniciar llamada */
+.btn-startCall-3mt {
+	background-color: #3075bc;
+	color: white;
+}
+
+.btn-startCall-3mt:hover {
+	background-color: #1863af;
+	transform: scale(1.03);
+}
+
+.btn-startCall-wsc {
+	background-color: #fa9500;
+	color: #181f33;
+}
+
+.btn-startCall-wsc:hover {
+	background-color: #fca421;
+	transform: scale(1.03);
+}
+
+/* Botón para detener llamada */
+.btn-stopCall {
+	background-color: #f44336;
+	color: white;
+}
+
+.btn-stopCall:hover {
+	background-color: #e53935;
+	transform: scale(1.03);
+}
