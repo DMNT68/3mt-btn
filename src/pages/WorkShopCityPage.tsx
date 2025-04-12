@@ -3,7 +3,7 @@ import { useCall } from '../hooks/useCall';
 import '../assets/styles.css';
 import { ClientAiConnect } from '../types';
 
-const agentId = 'agent_cc8cdff47ded40be040f26932c';
+const agentId = 'agent_f69b3d12528b878f5ef66691e8';
 const client: ClientAiConnect = 'workshopcity';
 
 export const WorkShopCityPage = () => {
