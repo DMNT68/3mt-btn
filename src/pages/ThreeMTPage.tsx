@@ -4,7 +4,7 @@ import '../assets/styles.css';
 import { ClientAiConnect } from '../types';
 import LiquidButton from '../components/LiquidButton/LiquidButton';
 
-const agentId = 'agent_3badf23c0c8c79c15b4f9d8139';
+const agentId = 'agent_1ff50ebd05933bc0be855fb727';
 const client: ClientAiConnect = '3mt';
 
 export const ThreeMTPage = () => {
