@@ -60,7 +60,7 @@
             width: 380px;
             height: 600px;
             background: var(--chat--color-background);
-            border-radius: 12px;
+            border-radius: 30px;
             box-shadow: 0 8px 32px rgba(46, 43, 255, 0.15);
             border: 1px solid rgba(42, 38, 255, 0.2);
             overflow: hidden;
@@ -131,8 +131,8 @@
         }
 
         .n8n-chat-widget .welcome-text {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 28px;
+            font-weight: semibold;
             color: var(--chat--color-font);
             margin-bottom: 24px;
             line-height: 1.3;
@@ -144,11 +144,12 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
+            height: 52px;
             padding: 16px 24px;
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 30px;
             cursor: pointer;
             font-size: 16px;
             transition: transform 0.3s;
@@ -170,7 +171,7 @@
             font-size: 14px;
             color: var(--chat--color-font);
             opacity: 0.7;
-            margin: 0;
+            margin: 12px 0;
         }
 
         .n8n-chat-widget .chat-interface {
@@ -354,9 +355,10 @@
         </div>
         <div class="new-conversation">
             <h2 class="welcome-text">${config.branding.welcomeText}</h2>
+            <p class="response-text">${config.branding.responseTimeText}</p>
             <iframe 
                 src="https://aiconnect.flec-ec.com/3mt" 
-                width="250" 
+                width="100%" 
                 height="60" 
                 style="border: none;"
                 allow="microphone">
@@ -365,7 +367,6 @@
                 ${config.icons.send}
                 Send a message
             </button>
-            <p class="response-text">${config.branding.responseTimeText}</p>
         </div>
     `;
 
