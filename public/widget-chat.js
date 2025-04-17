@@ -21,14 +21,12 @@
 			close:
 				'<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>',
 			back: '<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>',
-			msg: '<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-message"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-4.724l-4.762 2.857a1 1 0 0 1 -1.508 -.743l-.006 -.114v-2h-1a4 4 0 0 1 -3.995 -3.8l-.005 -.2v-8a4 4 0 0 1 4 -4zm-4 9h-6a1 1 0 0 0 0 2h6a1 1 0 0 0 0 -2m2 -4h-8a1 1 0 1 0 0 2h8a1 1 0 0 0 0 -2" /></svg>',
 		},
 		style: {
-			primaryColor: '#003DA5',
-			secondaryColor: '#0DB02B',
+			primaryColor: '',
+			secondaryColor: '',
 			position: 'right',
-			backgroundColor: '#003DA5',
-			backgroundColorSecondary: '#2E81C4',
+			backgroundColor: '#ffffff',
 			fontColor: '#333333',
 		},
 	};
@@ -48,8 +46,7 @@
         .n8n-chat-widget {
             --chat--color-primary: var(--n8n-chat-primary-color, #${config.style.primaryColor});
             --chat--color-secondary: var(--n8n-chat-secondary-color, #${config.style.secondaryColor});
-            --chat--color-background: var(--n8n-chat-background-color, #${config.style.backgroundColor});	
-            --chat--color-background-secondary: var(--n8n-chat-background-secondary-color, #${config.style.backgroundColorSecondary});
+            --chat--color-background: var(--n8n-chat-background-color, #ffffff);
             --chat--color-font: var(--n8n-chat-font-color, #333333);
             font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
@@ -62,8 +59,8 @@
             display: none;
             width: 380px;
             height: 600px;
-            background: linear-gradient(180deg , var(--chat--color-background) 0%, var(--chat--color-background-secondary) 20%);
-            border-radius: 30px;
+            background: var(--chat--color-background);
+            border-radius: 12px;
             box-shadow: 0 8px 32px rgba(46, 43, 255, 0.15);
             border: 1px solid rgba(42, 38, 255, 0.2);
             overflow: hidden;
@@ -84,12 +81,16 @@
             padding: 16px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             gap: 12px;
+            border-bottom: 1px solid rgba(133, 79, 255, 0.1);
             position: relative;
         }
 
-        .n8n-chat-widget .close-button, .back-button{
+        .n8n-chat-widget .close-button {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
             background: none;
             border: none;
             cursor: pointer;
@@ -103,10 +104,8 @@
             width: 32px;
         }
 
-        .n8n-chat-widget .close-button:hover, .back-button:hover {
+        .n8n-chat-widget .close-button:hover {
             opacity: 1;
-            scale: 1.05;
-
         }
 
         .n8n-chat-widget .brand-header img {
@@ -132,7 +131,7 @@
         }
 
         .n8n-chat-widget .welcome-text {
-            font-size: 24px;
+            font-size: 16px;
             font-weight: 600;
             color: var(--chat--color-font);
             margin-bottom: 24px;
@@ -145,12 +144,11 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            height: 52px;
             padding: 16px 24px;
-            background: linear-gradient(190deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
+            background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
             transition: transform 0.3s;
@@ -189,6 +187,7 @@
             flex: 1;
             overflow-y: auto;
             padding: 20px;
+            background: var(--chat--color-background);
             display: flex;
             flex-direction: column;
         }
@@ -212,7 +211,7 @@
         }
 
         .n8n-chat-widget .chat-message.bot {
-            background: #fff;
+            background: var(--chat--color-background);
             border: 1px solid rgba(133, 79, 255, 0.2);
             color: var(--chat--color-font);
             align-self: flex-start;
@@ -221,6 +220,7 @@
 
         .n8n-chat-widget .chat-input {
             padding: 16px;
+            background: var(--chat--color-background);
             border-top: 1px solid rgba(133, 79, 255, 0.1);
             display: flex;
             gap: 8px;
@@ -231,6 +231,7 @@
             padding: 12px;
             border: 1px solid rgba(133, 79, 255, 0.2);
             border-radius: 8px;
+            background: var(--chat--color-background);
             color: var(--chat--color-font);
             resize: none;
             font-family: inherit;
@@ -252,7 +253,6 @@
             transition: transform 0.2s;
             font-family: inherit;
             font-weight: 500;
-            width: 60px;
         }
 
         .n8n-chat-widget .chat-input button:hover {
@@ -296,6 +296,7 @@
         .n8n-chat-widget .chat-footer {
             padding: 8px;
             text-align: center;
+            background: var(--chat--color-background);
             border-top: 1px solid rgba(133, 79, 255, 0.1);
         }
 
@@ -338,7 +339,6 @@
 	widgetContainer.style.setProperty('--n8n-chat-primary-color', config.style.primaryColor);
 	widgetContainer.style.setProperty('--n8n-chat-secondary-color', config.style.secondaryColor);
 	widgetContainer.style.setProperty('--n8n-chat-background-color', config.style.backgroundColor);
-	widgetContainer.style.setProperty('--n8n-chat-background-secondary-color', config.style.backgroundColorSecondary);
 	widgetContainer.style.setProperty('--n8n-chat-font-color', config.style.fontColor);
 
 	const chatContainer = document.createElement('div');
@@ -350,19 +350,20 @@
         <div class="brand-header">
             <img src="${config.branding.logo}" alt="${config.branding.name}">
             <span>${config.branding.name}</span>
-            <button class="close-button">${config.icons.close}</button>
+            <button class="close-button">X</button>
         </div>
         <div class="new-conversation">
             <h2 class="welcome-text">${config.branding.welcomeText}</h2>
             <iframe 
-                src="http://localhost:5173/workshopcity" 
+                src="https://aiconnect.flec-ec.com/3mt" 
                 width="250" 
                 height="60" 
                 style="border: none;"
                 allow="microphone">
             </iframe>
             <button class="new-chat-btn">
-                Start Chat
+                ${config.icons.send}
+                Send a message
             </button>
             <p class="response-text">${config.branding.responseTimeText}</p>
         </div>
@@ -371,9 +372,6 @@
 	const chatInterfaceHTML = `
         <div class="chat-interface">
             <div class="brand-header">
-                <button class="back-button">
-                    ${config.icons.back}
-                </button>
                 <img src="${config.branding.logo}" alt="${config.branding.name}">
                 <span>${config.branding.name}</span>
                 <button class="close-button">
@@ -395,7 +393,10 @@
 
 	const toggleButton = document.createElement('button');
 	toggleButton.className = `chat-toggle${config.style.position === 'left' ? ' position-left' : ''}`;
-	toggleButton.innerHTML = `${config.icons.msg}`;
+	toggleButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2.5 21.5l4.5-.838A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.476 0-2.886-.313-4.156-.878l-3.156.586.586-3.156A7.962 7.962 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+        </svg>`;
 
 	widgetContainer.appendChild(chatContainer);
 	widgetContainer.appendChild(toggleButton);
@@ -406,7 +407,6 @@
 	const messagesContainer = chatContainer.querySelector('.chat-messages');
 	const textarea = chatContainer.querySelector('textarea');
 	const sendButton = chatContainer.querySelector('button[type="submit"]');
-	const backButton = chatContainer.querySelector('.back-button');
 
 	function generateUUID() {
 		return crypto.randomUUID();
@@ -488,12 +488,6 @@
 			console.error('Error:', error);
 		}
 	}
-
-	backButton.addEventListener('click', () => {
-		chatInterface.classList.remove('active');
-		chatContainer.querySelector('.brand-header').style.display = 'flex';
-		chatContainer.querySelector('.new-conversation').style.display = 'block';
-	});
 
 	newChatBtn.addEventListener('click', startNewConversation);
 
