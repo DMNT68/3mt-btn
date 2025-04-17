@@ -1,14 +1,10 @@
 body {
-  width: 210px;
 	margin: 5px;
 }
 
-#root {
-  width: 210px;
-}
-
 .app-container {
-  width: 210px;
+	display: flex;
+	justify-content: center;
 	text-align: center;
 }
 
@@ -29,12 +25,13 @@ button {
 
 /* Botón para iniciar llamada */
 .btn-startCall-3mt {
-	background-color: #3075bc;
+	width: 100%;
+	background: linear-gradient(190deg, #003da5 0%, #2e81c4 100%);
+	border-radius: 30px;
 	color: white;
 }
 
 .btn-startCall-3mt:hover {
-	background-color: #1863af;
 	transform: scale(1.03);
 }
 
