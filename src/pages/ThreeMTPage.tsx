@@ -13,7 +13,7 @@ export const ThreeMTPage = () => {
 	return (
 		<div className="app-container">
 			<CallButton
-				className={isCalling ? 'btn-stopCall' : 'btn-startCall-3mt'}
+				className={isCalling ? 'btn-stopCall threemt' : 'btn-startCall-3mt'}
 				isCalling={isCalling}
 				label={isLoading ? 'Calling...' : isCalling ? 'Stop call' : 'Ask an expert'}
 				onClick={isLoading ? () => {} : toggleCall}

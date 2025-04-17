@@ -9,7 +9,7 @@ body {
 }
 
 button {
-	width: 200px;
+	width: 100%;
 	font-size: 1.1rem;
 	padding: 12px 24px;
 	border: none;
@@ -25,7 +25,7 @@ button {
 
 /* Botón para iniciar llamada */
 .btn-startCall-3mt {
-	width: 100%;
+	height: 52px;
 	background: linear-gradient(190deg, #003da5 0%, #2e81c4 100%);
 	border-radius: 30px;
 	color: white;
@@ -49,6 +49,11 @@ button {
 .btn-stopCall {
 	background-color: #f44336;
 	color: white;
+}
+
+.threemt {
+	border-radius: 30px;
+	height: 52px;
 }
 
 .btn-stopCall:hover {
