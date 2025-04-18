@@ -509,6 +509,7 @@
 	const messageInput = chatContainer.querySelector('.message-input');
 	const sendButton = chatContainer.querySelector('button[type="submit"]');
 	const backButton = chatContainer.querySelector('.back-button');
+	const trashButton = chatContainer.querySelector('.trash-button');
 
 	function generateUUID() {
 		return crypto.randomUUID();
@@ -601,8 +602,6 @@
 
 			const data = await response.json();
 
-			const botMessageDiv = document.createElement('div');
-
 			const botMessageText = Array.isArray(data) ? data[0].output : data.output;
 
 			// Reemplaza el contenido del typingIndicator con el texto real
@@ -619,6 +618,11 @@
 		chatInterface.classList.remove('active');
 		chatContainer.querySelector('.brand-header').style.display = 'flex';
 		chatContainer.querySelector('.new-conversation').style.display = 'block';
+	});
+
+	trashButton.addEventListener('click', () => {
+		messagesContainer.innerHTML = '';
+		startNewConversation();
 	});
 
 	newChatBtn.addEventListener('click', startNewConversation);
