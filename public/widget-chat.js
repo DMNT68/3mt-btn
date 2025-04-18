@@ -370,13 +370,13 @@
             justify-content: center;
             align-items: center;
             gap: 8px;
-            height: 40px;
+            height: 20px;
             }
 
         .loading-dots span {
             width: 10px;
             height: 10px;
-            background-color: var(---chat--color-background);
+            background-color: var(--chat--color-primary);
             border-radius: 50%;
             animation: bounce 1.2s infinite ease-in-out;
         }
@@ -514,6 +514,25 @@
 		return crypto.randomUUID();
 	}
 
+	function showTypingIndicator() {
+		const typingDiv = document.createElement('div');
+		typingDiv.className = 'chat-message bot typing-indicator';
+		typingDiv.innerHTML = `
+		<div class="loading-dots">
+			<span></span><span></span><span></span>
+		</div>
+	`;
+		messagesContainer.appendChild(typingDiv);
+		messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+		// Guardamos este div en una variable global para reutilizarlo
+		window.typingIndicator = typingDiv;
+	}
+
+	function hideTypingIndicator() {
+		typingIndicator.style.display = 'none';
+	}
+
 	async function startNewConversation() {
 		currentSessionId = generateUUID();
 		const data = [
@@ -571,6 +590,7 @@
 		messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
 		try {
+			showTypingIndicator();
 			const response = await fetch(config.webhook.url, {
 				method: 'POST',
 				headers: {
@@ -582,11 +602,15 @@
 			const data = await response.json();
 
 			const botMessageDiv = document.createElement('div');
-			botMessageDiv.className = 'chat-message bot';
-			botMessageDiv.textContent = Array.isArray(data) ? data[0].output : data.output;
-			messagesContainer.appendChild(botMessageDiv);
+
+			const botMessageText = Array.isArray(data) ? data[0].output : data.output;
+
+			// Reemplaza el contenido del typingIndicator con el texto real
+			typingIndicator.classList.remove('typing-indicator');
+			typingIndicator.innerHTML = botMessageText;
 			messagesContainer.scrollTop = messagesContainer.scrollHeight;
 		} catch (error) {
+			hideTypingIndicator();
 			console.error('Error:', error);
 		}
 	}
