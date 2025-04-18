@@ -17,11 +17,13 @@
 			},
 		},
 		icons: {
-			send: '<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-send"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 14l11 -11" /><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" /></svg>',
+			send: '<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-send-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4.698 4.034l16.302 7.966l-16.302 7.966a.503 .503 0 0 1 -.546 -.124a.555 .555 0 0 1 -.12 -.568l2.468 -7.274l-2.468 -7.274a.555 .555 0 0 1 .12 -.568a.503 .503 0 0 1 .546 -.124z" /><path d="M6.5 12h14.5" /></svg>',
 			close:
 				'<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>',
-			back: '<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>',
+			back: '<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>',
 			msg: '<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-message"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-4.724l-4.762 2.857a1 1 0 0 1 -1.508 -.743l-.006 -.114v-2h-1a4 4 0 0 1 -3.995 -3.8l-.005 -.2v-8a4 4 0 0 1 4 -4zm-4 9h-6a1 1 0 0 0 0 2h6a1 1 0 0 0 0 -2m2 -4h-8a1 1 0 1 0 0 2h8a1 1 0 0 0 0 -2" /></svg>',
+			trash:
+				'<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>',
 		},
 		style: {
 			primaryColor: '#003DA5',
@@ -50,7 +52,7 @@
             --chat--color-secondary: var(--n8n-chat-secondary-color, #${config.style.secondaryColor});
             --chat--color-background: var(--n8n-chat-background-color, #${config.style.backgroundColor});	
             --chat--color-background-secondary: var(--n8n-chat-background-secondary-color, #${config.style.backgroundColorSecondary});
-            --chat--color-font: var(--n8n-chat-font-color, #333333);
+            --chat--color-font: var(--n8n-chat-font-color,#${config.style.fontColor});
             font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
@@ -64,8 +66,8 @@
             height: 600px;
             background: linear-gradient(180deg , var(--chat--color-background) 0%, var(--chat--color-background-secondary) 20%);
             border-radius: 30px;
-            box-shadow: 0 8px 32px rgba(46, 43, 255, 0.15);
-            border: 1px solid rgba(42, 38, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 61, 165, 0.15);
+            border: 1px solid rgba(0, 61, 165, 0.2);
             overflow: hidden;
             font-family: inherit;
         }
@@ -90,24 +92,40 @@
             z-index: 1;
         }
 
-        .n8n-chat-widget .close-button, .back-button{
+        .n8n-chat-widget .close-button, .back-button, .trash-button {
             background: none;
             border: none;
             cursor: pointer;
+            border-radius: 100%;
             padding: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: color 0.2s;
             font-size: 20px;
-            opacity: 0.6;
+            opacity: 1;
             width: 32px;
+            color: #fff;
         }
 
-        .n8n-chat-widget .close-button:hover, .back-button:hover {
-            opacity: 1;
+        .n8n-chat-widget .close-button:hover, .back-button:hover, .trash-button:hover {
+            opacity: 1.5;
             scale: 1.05;
 
+        }
+        .n8n-chat-widget .back-button {
+            background-color: #fff;
+            color: var(--chat--color-font);
+        }
+
+        .n8n-chat-widget .trash-button {
+            color: #FF0000;
+        }
+
+        .n8n-chat-widget .buttons-container-right{
+            display: flex;
+            gap: 8px;
+            align-items: center;
         }
 
         .n8n-chat-widget .brand-header img {
@@ -128,10 +146,18 @@
         }
 
         .n8n-chat-widget .logo {
-            border: 2px linear-gradient(215deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%); solid;
             border-radius: 100%;
             width: 160px;
             height: 160px;
+        }
+
+        .n8n-chat-widget .logo-container {
+            max-width: 160px;
+            height: 160px;
+            border-radius: 100%;
+            padding: 1rem;
+            background: linear-gradient(215deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
+            padding: 3px;
         }
 
         .n8n-chat-widget .new-conversation {
@@ -143,6 +169,13 @@
             text-align: center;
             width: 100%;
             max-width: 300px;
+        }
+
+        .n8n-chat-widget .new-conversatio-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .n8n-chat-widget .welcome-text {
@@ -220,13 +253,13 @@
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             align-self: flex-end;
-            box-shadow: 0 4px 12px rgba(133, 79, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 61, 165, 0.2);
             border: none;
         }
 
         .n8n-chat-widget .chat-message.bot {
             background: #fff;
-            border: 1px solid rgba(133, 79, 255, 0.2);
+            border: 1px solid rgba(0, 61, 165, 0.2);
             color: var(--chat--color-font);
             align-self: flex-start;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -234,32 +267,38 @@
 
         .n8n-chat-widget .chat-input {
             padding: 16px;
-            border-top: 1px solid rgba(133, 79, 255, 0.1);
             display: flex;
             gap: 8px;
+            background: #F8FAFC;
         }
 
-        .n8n-chat-widget .chat-input textarea {
+        .n8n-chat-widget .chat-input .message-input {
             flex: 1;
             padding: 12px;
-            border: 1px solid rgba(133, 79, 255, 0.2);
-            border-radius: 8px;
+            border: 0;
+            border-radius: 30px;
             color: var(--chat--color-font);
-            resize: none;
             font-family: inherit;
             font-size: 14px;
+            width: 48px;
+            box-shadow: 0 0 0 1px rgba(0, 61, 165 ,0.2)
         }
 
-        .n8n-chat-widget .chat-input textarea::placeholder {
+        .n8n-chat-widget .chat-input .message-input::placeholder {
             color: var(--chat--color-font);
             opacity: 0.6;
+        }
+
+        .n8n-chat-widget .chat-input .message-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 1px rgba(0, 61, 165, 0.4);
         }
 
         .n8n-chat-widget .chat-input button {
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 30px;
             padding: 0 20px;
             cursor: pointer;
             transition: transform 0.2s;
@@ -276,14 +315,14 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(133, 79, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 61, 165, 0.3);
             z-index: 999;
             transition: transform 0.3s;
             display: flex;
@@ -307,9 +346,10 @@
         }
 
         .n8n-chat-widget .chat-footer {
-            padding: 8px;
+            padding: 6px;
             text-align: center;
-            border-top: 1px solid rgba(133, 79, 255, 0.1);
+            border-top: 1px solid rgba(0, 61, 165, 0.2);
+            background: #F8FAFC;
         }
 
         .n8n-chat-widget .chat-footer a {
@@ -323,6 +363,41 @@
 
         .n8n-chat-widget .chat-footer a:hover {
             opacity: 1;
+        }
+
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            height: 40px;
+            }
+
+        .loading-dots span {
+            width: 10px;
+            height: 10px;
+            background-color: var(---chat--color-background);
+            border-radius: 50%;
+            animation: bounce 1.2s infinite ease-in-out;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+            40% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
         }
     `;
 
@@ -368,23 +443,26 @@
             <button class="close-button">${config.icons.close}</button>
         </div>
         <div class="new-conversation">
-            <h3 class="chatbot-title">Chatbot</h3>
-            <picture>
-                <img class="logo" src="${config.branding.logo}" alt="${config.branding.name}" width="160" height="160">
-            </picture>
-            <h2 class="welcome-text">${config.branding.welcomeText}</h2>
-            <p class="response-text">${config.branding.responseTimeText}</p>
-            <iframe 
-                src="https://aiconnect.flec-ec.com/3mt" 
-                width="100%" 
-                height="60" 
-                style="border: none;"
-                allow="microphone">
-            </iframe>
-            <button class="new-chat-btn">
-                ${config.icons.send}
-                Send a message
-            </button>
+            <div class="new-conversatio-container">
+                <h3 class="chatbot-title">Chatbot</h3>
+                <div class="logo-container">
+                    <img class="logo" src="${config.branding.logo}" alt="${config.branding.name}" width="160" height="160">
+                </div>
+                
+                <h2 class="welcome-text">${config.branding.welcomeText}</h2>
+                <p class="response-text">${config.branding.responseTimeText}</p>
+                <iframe 
+                    src="https://aiconnect.flec-ec.com/3mt" 
+                    width="100%" 
+                    height="65" 
+                    style="border: none;"
+                    allow="microphone">
+                </iframe>
+                <button class="new-chat-btn">
+                    ${config.icons.send}
+                    Send a message
+                </button>
+            </div>
         </div>
     `;
 
@@ -394,15 +472,19 @@
                 <button class="back-button">
                     ${config.icons.back}
                 </button>
-                <img src="${config.branding.logo}" alt="${config.branding.name}">
-                <span>${config.branding.name}</span>
-                <button class="close-button">
-                    ${config.icons.close}
-                </button>
+                <span>Chatbot</span>
+                <div class="buttons-container-right">
+                    <button class="trash-button">
+                        ${config.icons.trash}
+                    </button>
+                    <button class="close-button">
+                        ${config.icons.close}
+                    </button>
+                </div>
             </div>
             <div class="chat-messages"></div>
             <div class="chat-input">
-                <textarea placeholder="Type your message here..."></textarea>
+                <input class="message-input" type="text" placeholder="Type your message here..."></input>
                 <button type="submit">${config.icons.send}</button>
             </div>
             <div class="chat-footer">
@@ -424,7 +506,7 @@
 	const newChatBtn = chatContainer.querySelector('.new-chat-btn');
 	const chatInterface = chatContainer.querySelector('.chat-interface');
 	const messagesContainer = chatContainer.querySelector('.chat-messages');
-	const textarea = chatContainer.querySelector('textarea');
+	const messageInput = chatContainer.querySelector('.message-input');
 	const sendButton = chatContainer.querySelector('button[type="submit"]');
 	const backButton = chatContainer.querySelector('.back-button');
 
@@ -518,20 +600,20 @@
 	newChatBtn.addEventListener('click', startNewConversation);
 
 	sendButton.addEventListener('click', () => {
-		const message = textarea.value.trim();
+		const message = messageInput.value.trim();
 		if (message) {
 			sendMessage(message);
-			textarea.value = '';
+			messageInput.value = '';
 		}
 	});
 
-	textarea.addEventListener('keypress', (e) => {
+	messageInput.addEventListener('keypress', (e) => {
 		if (e.key === 'Enter' && !e.shiftKey) {
 			e.preventDefault();
-			const message = textarea.value.trim();
+			const message = messageInput.value.trim();
 			if (message) {
 				sendMessage(message);
-				textarea.value = '';
+				messageInput.value = '';
 			}
 		}
 	});
