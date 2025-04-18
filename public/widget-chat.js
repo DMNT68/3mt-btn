@@ -399,6 +399,31 @@
                 opacity: 1;
             }
         }
+
+
+        .chat-message.bot h1,
+        .chat-message.bot h2 {
+            margin: 0.5em 0;
+        }
+
+        .chat-message.bot code {
+            background: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .chat-message.bot pre {
+            background: #f6f8fa;
+            padding: 10px;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        .chat-message.bot img {
+            width: 160px;
+            border-radius: 5px;
+        }
     `;
 
 	// Load Geist font
@@ -606,7 +631,7 @@
 
 			// Reemplaza el contenido del typingIndicator con el texto real
 			typingIndicator.classList.remove('typing-indicator');
-			typingIndicator.innerHTML = botMessageText;
+			typingIndicator.innerHTML = marked.parse(botMessageText);
 			messagesContainer.scrollTop = messagesContainer.scrollHeight;
 		} catch (error) {
 			hideTypingIndicator();
