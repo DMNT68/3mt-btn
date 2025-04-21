@@ -682,4 +682,13 @@
 			chatContainer.classList.remove('open');
 		});
 	});
+
+	function loadMarkedLibrary(callback) {
+		const script = document.createElement('script');
+		script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+		script.onload = callback;
+		document.head.appendChild(script);
+	}
+
+	loadMarkedLibrary();
 })();
