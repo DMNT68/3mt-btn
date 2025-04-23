@@ -33,6 +33,7 @@
 			backgroundColorSecondary: '#2E81C4',
 			fontColor: '#333333',
 		},
+		button: '',
 	};
 
 	// Merge user config with defaults
@@ -42,6 +43,7 @@
 				branding: { ...defaultConfig.branding, ...window.ChatWidgetConfig.branding },
 				style: { ...defaultConfig.style, ...window.ChatWidgetConfig.style },
 				icons: { ...defaultConfig.icons, ...window.ChatWidgetConfig.icons },
+				button: { ...defaultConfig.button, ...window.ChatWidgetConfig.button },
 		  }
 		: defaultConfig;
 
@@ -198,7 +200,7 @@
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1.1rem;;
             transition: transform 0.3s;
             font-weight: 500;
             font-family: inherit;
@@ -476,16 +478,12 @@
                 
                 <h2 class="welcome-text">${config.branding.welcomeText}</h2>
                 <p class="response-text">${config.branding.responseTimeText}</p>
-                <iframe 
-                    src="https://aiconnect.flec-ec.com/3mt" 
-                    width="100%" 
-                    height="65" 
-                    style="border: none;"
-                    allow="microphone">
-                </iframe>
+
+               <div id="custom-chat-button"></div>
+
                 <button class="new-chat-btn">
                     ${config.icons.send}
-                    Send a message
+                    Start Chat
                 </button>
             </div>
         </div>
@@ -528,8 +526,8 @@
 	widgetContainer.appendChild(toggleButton);
 	document.body.appendChild(widgetContainer);
 
-    // abrir el chat al entrar a la página
-    chatContainer.classList.toggle('open');
+	// abrir el chat al entrar a la página
+	chatContainer.classList.toggle('open');
 
 	const newChatBtn = chatContainer.querySelector('.new-chat-btn');
 	const chatInterface = chatContainer.querySelector('.chat-interface');
@@ -642,6 +640,14 @@
 		}
 	}
 
+	function renderCustomButton() {
+		const buttonContainer = document.getElementById('custom-chat-button');
+
+		if (config.button && buttonContainer) {
+			buttonContainer.innerHTML = window.ChatWidgetConfig.button;
+		}
+	}
+
 	backButton.addEventListener('click', () => {
 		chatInterface.classList.remove('active');
 		chatContainer.querySelector('.brand-header').style.display = 'flex';
@@ -694,4 +700,5 @@
 	}
 
 	loadMarkedLibrary();
+	renderCustomButton();
 })();
