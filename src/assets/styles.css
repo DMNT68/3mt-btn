@@ -36,6 +36,7 @@ button {
 }
 
 .btn-startCall-wsc {
+	height: 52px;
 	background-color: #fa9500;
 	color: #000;
 }
