@@ -20,6 +20,7 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-radius: 30px;
 	gap: 8px;
 }
 
@@ -27,7 +28,6 @@ button {
 .btn-startCall-3mt {
 	height: 52px;
 	background: linear-gradient(190deg, #003da5 0%, #2e81c4 100%);
-	border-radius: 30px;
 	color: white;
 }
 
@@ -37,7 +37,7 @@ button {
 
 .btn-startCall-wsc {
 	background-color: #fa9500;
-	color: #181f33;
+	color: #000;
 }
 
 .btn-startCall-wsc:hover {
