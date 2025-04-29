@@ -4,7 +4,7 @@ export interface RegisterCallResponse {
 	data: CallData;
 }
 
-export type ClientAiConnect = '3mt' | 'workshopcity';
+export type ClientAiConnect = '3mt' | 'workshopcity' | 'sellmycar';
 
 interface CallData {
 	call_id: string;
