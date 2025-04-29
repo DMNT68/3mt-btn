@@ -46,6 +46,17 @@ button {
 	transform: scale(1.03);
 }
 
+.btn-startCall-smc {
+	height: 52px;
+	background-color: #0057a8;
+	color: #fff;
+}
+
+.btn-startCall-smc:hover {
+	background-color: #0057a8;
+	transform: scale(1.03);
+}
+
 /* Botón para detener llamada */
 .btn-stopCall {
 	background-color: #f44336;
