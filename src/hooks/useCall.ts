@@ -32,12 +32,17 @@ export const useCall = (agentId: string, client: ClientAiConnect) => {
 			retellWebClient.stopCall();
 		} else {
 			setIsLoading(true);
-			const { data } = await registerCall(agentId, client);
-			if (data.access_token) {
-				await retellWebClient.startCall({ accessToken: data.access_token });
-				setIsCalling(true);
+			try {
+				const { data } = await registerCall(agentId, client);
+				if (data.access_token) {
+					await retellWebClient.startCall({ accessToken: data.access_token });
+					setIsCalling(true);
+				}
+				setIsLoading(false);
+			} catch (error) {
+				setIsLoading(false);
+				console.log('❌ Error:', error);
 			}
-			setIsLoading(false);
 		}
 	};
 
