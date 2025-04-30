@@ -185,7 +185,7 @@
         }
 
         .n8n-chat-widget .welcome-text {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: semibold;
             color: var(--chat--color-font);
             margin-bottom: 24px;
