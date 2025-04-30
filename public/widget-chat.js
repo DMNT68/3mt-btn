@@ -173,6 +173,10 @@
             max-width: 300px;
         }
 
+        .n8n-chat-widget .new-conversation .chat-footer {
+           background: transparent;
+        }
+
         .n8n-chat-widget .new-conversatio-container {
             display: flex;
             justify-content: center;
@@ -486,6 +490,9 @@
                     ${config.icons.send}
                     Start Chat
                 </button>
+            </div>
+            <div class="chat-footer">
+                <a href="${config.branding.poweredBy.link}" target="_blank">${config.branding.poweredBy.text}</a>
             </div>
         </div>
     `;
