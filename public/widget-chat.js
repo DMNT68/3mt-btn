@@ -194,6 +194,7 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
+            height: 52px;
             padding: 16px 24px;
             background: linear-gradient(215deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
