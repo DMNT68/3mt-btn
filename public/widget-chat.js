@@ -431,6 +431,19 @@
             width: 160px;
             border-radius: 5px;
         }
+
+        @media (max-width: 600px) {
+
+          .n8n-chat-widget .chat-container {
+                bottom: 0;
+                right: 0;
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+           
+        }
+
+}
     `;
 
 	// Load Geist font
@@ -568,8 +581,9 @@
 		typingIndicator.style.display = 'none';
 	}
 
+	let initConversation = false;
+
 	async function startNewConversation() {
-		currentSessionId = generateUUID();
 		const data = [
 			{
 				action: 'loadPreviousSession',
@@ -582,27 +596,30 @@
 		];
 
 		try {
-			const response = await fetch(config.webhook.url, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(data),
-			});
+			if (!initConversation) {
+				const response = await fetch(config.webhook.url, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				});
 
-			const responseData = await response.json();
+				const responseData = await response.json();
+
+				const botMessageDiv = document.createElement('div');
+				const botMessageText = Array.isArray(responseData)
+					? responseData[0].output
+					: responseData.output;
+
+				botMessageDiv.className = 'chat-message bot';
+				botMessageDiv.innerHTML = marked.parse(botMessageText);
+				messagesContainer.appendChild(botMessageDiv);
+				saveMessagesToLocalStorage();
+			}
 			chatContainer.querySelector('.brand-header').style.display = 'none';
 			chatContainer.querySelector('.new-conversation').style.display = 'none';
 			chatInterface.classList.add('active');
-
-			const botMessageDiv = document.createElement('div');
-			const botMessageText = Array.isArray(responseData)
-				? responseData[0].output
-				: responseData.output;
-
-			botMessageDiv.className = 'chat-message bot';
-			botMessageDiv.innerHTML = marked.parse(botMessageText);
-			messagesContainer.appendChild(botMessageDiv);
 			messagesContainer.scrollTop = messagesContainer.scrollHeight;
 		} catch (error) {
 			console.error('Error:', error);
@@ -624,6 +641,7 @@
 		userMessageDiv.className = 'chat-message user';
 		userMessageDiv.textContent = message;
 		messagesContainer.appendChild(userMessageDiv);
+		saveMessagesToLocalStorage();
 		messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
 		try {
@@ -643,6 +661,7 @@
 			// Reemplaza el contenido del typingIndicator con el texto real
 			typingIndicator.classList.remove('typing-indicator');
 			typingIndicator.innerHTML = marked.parse(botMessageText);
+			saveMessagesToLocalStorage();
 			messagesContainer.scrollTop = messagesContainer.scrollHeight;
 		} catch (error) {
 			hideTypingIndicator();
@@ -666,6 +685,10 @@
 
 	trashButton.addEventListener('click', () => {
 		messagesContainer.innerHTML = '';
+		localStorage.removeItem('chatMessages');
+		localStorage.removeItem('chatSessionId');
+		currentSessionId = '';
+        initConversation = false;
 		startNewConversation();
 	});
 
@@ -709,6 +732,37 @@
 		document.head.appendChild(script);
 	}
 
+	function saveMessagesToLocalStorage() {
+		const messagesHTML = messagesContainer.innerHTML;
+		localStorage.setItem('chatMessages', messagesHTML);
+	}
+
+	function restoreMessagesFromLocalStorage() {
+		const savedMessages = localStorage.getItem('chatMessages');
+		if (savedMessages) {
+			messagesContainer.innerHTML = savedMessages;
+			initConversation = true;
+		} else {
+			initConversation = false;
+		}
+	}
+
+	function saveSessingIdToLocalStorage(sessionId) {
+		localStorage.setItem('chatSessionId', sessionId);
+	}
+
+	function restoreSessionIdFromLocalStorage() {
+		const savedSessionId = localStorage.getItem('chatSessionId');
+		if (savedSessionId) {
+			currentSessionId = savedSessionId;
+		} else {
+			currentSessionId = generateUUID();
+			saveSessingIdToLocalStorage(currentSessionId);
+		}
+	}
+
 	loadMarkedLibrary();
 	renderCustomButton();
+	restoreMessagesFromLocalStorage();
+	restoreSessionIdFromLocalStorage();
 })();
