@@ -124,6 +124,10 @@
             color: #FF0000;
         }
 
+        .n8n-chat-widget .close-button {
+            color: var(--chat--color-font);
+        }
+
         .n8n-chat-widget .buttons-container-right{
             display: flex;
             gap: 8px;
@@ -438,7 +442,7 @@
                 bottom: 0;
                 right: 0;
                 width: 100vw;
-                height: 100vh;
+                height: 100%;
                 border-radius: 0;
                 z-index: 10001;
            
