@@ -437,7 +437,6 @@
         }
 
         @media (max-width: 600px) {
-
           .n8n-chat-widget .chat-container {
                 bottom: 0;
                 right: 0;
@@ -445,10 +444,8 @@
                 height: 100%;
                 border-radius: 0;
                 z-index: 10001;
-           
+            }
         }
-
-}
     `;
 
 	// Load Geist font
