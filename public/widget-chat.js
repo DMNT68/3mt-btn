@@ -440,6 +440,7 @@
                 width: 100vw;
                 height: 100vh;
                 border-radius: 0;
+                z-index: 10001;
            
         }
 
