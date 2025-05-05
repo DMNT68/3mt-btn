@@ -10,7 +10,7 @@ export const AiConnectPage = () => {
 	const { isCalling, toggleCall, isLoading } = useCall(agentId, client);
 
 	return (
-		<div className="app-container">
+		<div className="app-container app-container-aic">
 			<CallButton
 				isCalling={isCalling}
 				label={isLoading ? 'Calling...' : isCalling ? 'Stop call' : 'Ask an expert'}

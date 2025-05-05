@@ -8,6 +8,10 @@ body {
 	text-align: center;
 }
 
+.app-container-aic {
+	padding-inline: 20px;
+}
+
 button {
 	width: 100%;
 	font-size: 1.1rem;
