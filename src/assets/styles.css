@@ -48,12 +48,29 @@ button {
 
 .btn-startCall-smc {
 	height: 52px;
-	background: linear-gradient(190deg, #003DA5 0%, #00BEEE 100%);
+	background: linear-gradient(190deg, #003da5 0%, #00beee 100%);
 	color: #fff;
+}
+
+.btn-startCall-aic {
+	height: 52px;
+	background-color: #262252 !important;
+	border: 2px solid #383479 !important;
+	color: white !important;
+	transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+	background: rgb(93, 254, 202);
+	box-shadow: 1px 1px 10px rgb(93, 254, 202);
 }
 
 .btn-startCall-smc:hover {
 	transform: scale(1.03);
+}
+
+.btn-startCall-aic:hover {
+	background-color: #5a54c6 !important;
+	border-color: #7873f5 !important;
+	transform: scale(1.05);
+	cursor: pointer;
 }
 
 /* Botón para detener llamada */
