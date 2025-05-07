@@ -31,7 +31,7 @@ button {
 
 /* Botón para iniciar llamada */
 .btn-startCall-3mt {
-	height: 52px;
+	height: 50px;
 	background: linear-gradient(190deg, #003da5 0%, #2e81c4 100%);
 	color: white;
 }
