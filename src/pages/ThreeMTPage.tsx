@@ -10,9 +10,17 @@ const client: ClientAiConnect = '3mt';
 
 export const ThreeMTPage = () => {
 	const { isCalling, toggleCall, isLoading } = useCall(agentId, client);
+	const queryParameters = new URLSearchParams(window.location.search);
+	const poweredBy =
+		queryParameters.get('poweredBy') === null
+			? true
+			: queryParameters.get('poweredBy') === 'false'
+			? false
+			: true;
 	return (
 		<div className="app-container">
 			<CallButton
+				isLabelPoweredBy={poweredBy ? true : false}
 				className={isCalling ? 'btn-stopCall threemt' : 'btn-startCall-3mt'}
 				isCalling={isCalling}
 				label={isLoading ? 'Calling...' : isCalling ? 'Stop call' : 'Ask an expert'}

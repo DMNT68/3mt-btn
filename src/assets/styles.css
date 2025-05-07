@@ -24,6 +24,7 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 	border-radius: 30px;
 	gap: 8px;
 }
@@ -91,4 +92,18 @@ button {
 .btn-stopCall:hover {
 	background-color: #e53935;
 	transform: scale(1.03);
+}
+
+.powered-by {
+	display: block;
+	font-size: 10px;
+	opacity: 0.7;
+	margin-top: -5px;
+}
+
+
+.button-content {
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
