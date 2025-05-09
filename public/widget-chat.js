@@ -107,7 +107,7 @@
             font-size: 20px;
             opacity: 1;
             width: 32px;
-            color: #fff !important;
+            color: #fff;
         }
 
         .n8n-chat-widget .close-button:hover, .back-button:hover, .trash-button:hover {
@@ -116,7 +116,7 @@
 
         }
         .n8n-chat-widget .back-button {
-            background-color: var(--chat--color-background-secondary) !important;
+            background-color: var(--chat--color-background-secondary);
             color: var(--chat--color-font);
         }
 
@@ -329,7 +329,7 @@
             right: 20px;
             width: 70px;
             height: 70px;
-            border-radius: 50px;
+            border-radius: 50px !important;
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
