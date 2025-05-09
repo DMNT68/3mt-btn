@@ -98,8 +98,8 @@
             background: none;
             border: none;
             cursor: pointer;
-            border-radius: 100%;
-            padding: 4px;
+            border-radius: 100% !important;
+            padding: 4px !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,7 +107,7 @@
             font-size: 20px;
             opacity: 1;
             width: 32px;
-            color: #fff;
+            color: #fff !important;
         }
 
         .n8n-chat-widget .close-button:hover, .back-button:hover, .trash-button:hover {
@@ -116,12 +116,12 @@
 
         }
         .n8n-chat-widget .back-button {
-            background-color: var(--chat--color-background-secondary);
+            background-color: var(--chat--color-background-secondary) !important;
             color: var(--chat--color-font);
         }
 
         .n8n-chat-widget .trash-button {
-            color: #FF0000;
+            color: #FF0000 !important;
         }
 
         .n8n-chat-widget .close-button {
@@ -207,7 +207,7 @@
             background: linear-gradient(215deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 30px !important;
             cursor: pointer;
             font-size: 1.1rem;;
             transition: transform 0.3s;
@@ -383,12 +383,12 @@
             align-items: center;
             gap: 8px;
             height: 20px;
-            }
+        }
 
         .loading-dots span {
             width: 10px;
             height: 10px;
-            background-color: var(--chat--color-primary);
+            background-color: var(--chat--color-primary) !important;
             border-radius: 50%;
             animation: bounce 1.2s infinite ease-in-out;
         }
