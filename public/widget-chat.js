@@ -248,6 +248,23 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
+            scrollbar-width: thin;
+            scrollbar-color: var(--chat--color-secondary)  var(--chat--color-background);
+        }
+
+        n8n-chat-widget .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        n8n-chat-widget .chat-messages::-webkit-scrollbar-track {
+            background:  var(--chat--color-background);
+            border-radius: 4px;
+        }
+
+        n8n-chat-widget .chat-messages::-webkit-scrollbar-thumb {
+            background-color:var(--chat--color-secondary);
+            border-radius: 4px;
+            border: 1px solid  var(--chat--color-background);
         }
 
         .n8n-chat-widget .chat-message {
