@@ -558,7 +558,57 @@
 	const backButton = chatContainer.querySelector('.back-button');
 	const trashButton = chatContainer.querySelector('.trash-button');
 	const closeButtons = chatContainer.querySelectorAll('.close-button');
+	let initConversation = false;
 
+	// Handle click events
+	backButton.addEventListener('click', () => {
+		chatInterface.classList.remove('active');
+		chatContainer.querySelector('.brand-header').style.display = 'flex';
+		chatContainer.querySelector('.new-conversation').style.display = 'block';
+	});
+
+	trashButton.addEventListener('click', () => {
+		messagesContainer.innerHTML = '';
+		localStorage.removeItem('chatMessages');
+		localStorage.removeItem('chatSessionId');
+		currentSessionId = '';
+		initConversation = false;
+		startNewConversation();
+	});
+
+	newChatBtn.addEventListener('click', startNewConversation);
+
+	sendButton.addEventListener('click', () => {
+		const message = messageInput.value.trim();
+		if (message) {
+			sendMessage(message);
+			messageInput.value = '';
+		}
+	});
+
+	messageInput.addEventListener('keypress', (e) => {
+		if (e.key === 'Enter' && !e.shiftKey) {
+			e.preventDefault();
+			const message = messageInput.value.trim();
+			if (message) {
+				sendMessage(message);
+				messageInput.value = '';
+			}
+		}
+	});
+
+	toggleButton.addEventListener('click', () => {
+		toggleChat(true);
+	});
+
+	// Add close button handlers
+	closeButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			toggleChat(false);
+		});
+	});
+
+    // Functions
 	function generateUUID() {
 		return crypto.randomUUID();
 	}
@@ -581,8 +631,6 @@
 	function hideTypingIndicator() {
 		typingIndicator.style.display = 'none';
 	}
-
-	let initConversation = false;
 
 	async function startNewConversation() {
 		const data = [
@@ -678,53 +726,6 @@
 		}
 	}
 
-	backButton.addEventListener('click', () => {
-		chatInterface.classList.remove('active');
-		chatContainer.querySelector('.brand-header').style.display = 'flex';
-		chatContainer.querySelector('.new-conversation').style.display = 'block';
-	});
-
-	trashButton.addEventListener('click', () => {
-		messagesContainer.innerHTML = '';
-		localStorage.removeItem('chatMessages');
-		localStorage.removeItem('chatSessionId');
-		currentSessionId = '';
-		initConversation = false;
-		startNewConversation();
-	});
-
-	newChatBtn.addEventListener('click', startNewConversation);
-
-	sendButton.addEventListener('click', () => {
-		const message = messageInput.value.trim();
-		if (message) {
-			sendMessage(message);
-			messageInput.value = '';
-		}
-	});
-
-	messageInput.addEventListener('keypress', (e) => {
-		if (e.key === 'Enter' && !e.shiftKey) {
-			e.preventDefault();
-			const message = messageInput.value.trim();
-			if (message) {
-				sendMessage(message);
-				messageInput.value = '';
-			}
-		}
-	});
-
-	toggleButton.addEventListener('click', () => {
-		toggleChat(true);
-	});
-
-	// Add close button handlers
-	closeButtons.forEach((button) => {
-		button.addEventListener('click', () => {
-			toggleChat(false);
-		});
-	});
-
 	function loadMarkedLibrary(callback) {
 		const script = document.createElement('script');
 		script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
@@ -773,6 +774,7 @@
 		}
 	}
 
+    // Initialization functions
 	toggleChat(true);
 	loadMarkedLibrary();
 	renderCustomButton();
