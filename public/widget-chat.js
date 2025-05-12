@@ -95,7 +95,7 @@
         }
 
         .n8n-chat-widget .close-button, .back-button, .trash-button {
-            background: none;
+            background: none !important;
             border: none;
             cursor: pointer;
             border-radius: 100% !important;
@@ -447,6 +447,11 @@
                 z-index: 10001;
             }
         }
+        
+        .no-scroll {
+            overflow: hidden !important;
+            touch-action: none !important;
+        }
     `;
 
 	// Load Geist font
@@ -608,7 +613,7 @@
 		});
 	});
 
-    // Functions
+	// Functions
 	function generateUUID() {
 		return crypto.randomUUID();
 	}
@@ -763,18 +768,18 @@
 	}
 
 	function toggleChat(open) {
+		const isMobile = window.innerWidth <= 600;
+
 		if (open) {
 			chatContainer.classList.add('open');
-			document.body.style.overflow = 'hidden'; // Bloquea scroll de fondo
-			document.body.style.touchAction = 'none'; // Previene scroll táctil
+			if (isMobile) document.body.classList.add('no-scroll');
 		} else {
 			chatContainer.classList.remove('open');
-			document.body.style.overflow = '';
-			document.body.style.touchAction = '';
+			if (isMobile) document.body.classList.remove('no-scroll');
 		}
 	}
 
-    // Initialization functions
+	// Initialization functions
 	toggleChat(true);
 	loadMarkedLibrary();
 	renderCustomButton();
