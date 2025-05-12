@@ -550,14 +550,6 @@
 	widgetContainer.appendChild(toggleButton);
 	document.body.appendChild(widgetContainer);
 
-	
-	const isMobile = window.innerWidth <= 600;
-
-	if (!isMobile) {
-        // abrir el chat al entrar a la página
-		chatContainer.classList.toggle('open');
-	}
-
 	const newChatBtn = chatContainer.querySelector('.new-chat-btn');
 	const chatInterface = chatContainer.querySelector('.chat-interface');
 	const messagesContainer = chatContainer.querySelector('.chat-messages');
