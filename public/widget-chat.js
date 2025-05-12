@@ -721,7 +721,7 @@
 	// Add close button handlers
 	closeButtons.forEach((button) => {
 		button.addEventListener('click', () => {
-            toggleChat(false);
+			toggleChat(false);
 		});
 	});
 
@@ -773,6 +773,7 @@
 		}
 	}
 
+	toggleChat(true);
 	loadMarkedLibrary();
 	renderCustomButton();
 	restoreMessagesFromLocalStorage();
