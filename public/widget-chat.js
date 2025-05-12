@@ -722,14 +722,13 @@
 	});
 
 	toggleButton.addEventListener('click', () => {
-		chatContainer.classList.toggle('open');
+		toggleChat(true);
 	});
 
 	// Add close button handlers
-	const closeButtons = chatContainer.querySelectorAll('.close-button');
 	closeButtons.forEach((button) => {
 		button.addEventListener('click', () => {
-			chatContainer.classList.remove('open');
+            toggleChat(false);
 		});
 	});
 
@@ -766,6 +765,18 @@
 		} else {
 			currentSessionId = generateUUID();
 			saveSessingIdToLocalStorage(currentSessionId);
+		}
+	}
+
+	function toggleChat(open) {
+		if (open) {
+			chatContainer.classList.add('open');
+			document.body.style.overflow = 'hidden'; // Bloquea scroll de fondo
+			document.body.style.touchAction = 'none'; // Previene scroll táctil
+		} else {
+			chatContainer.classList.remove('open');
+			document.body.style.overflow = '';
+			document.body.style.touchAction = '';
 		}
 	}
 
