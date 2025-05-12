@@ -565,6 +565,7 @@
 	const sendButton = chatContainer.querySelector('button[type="submit"]');
 	const backButton = chatContainer.querySelector('.back-button');
 	const trashButton = chatContainer.querySelector('.trash-button');
+    const closeButtons = chatContainer.querySelectorAll('.close-button');
 
 	function generateUUID() {
 		return crypto.randomUUID();
