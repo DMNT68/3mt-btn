@@ -655,6 +655,7 @@
 	}
 
 	async function startNewConversation() {
+        restoreSessionIdFromLocalStorage();
 		const data = [
 			{
 				action: 'loadPreviousSession',
@@ -801,5 +802,5 @@
 	loadMarkedLibrary();
 	renderCustomButton();
 	restoreMessagesFromLocalStorage();
-	restoreSessionIdFromLocalStorage();
+	// restoreSessionIdFromLocalStorage();
 })();
