@@ -66,7 +66,7 @@ button {
 	box-shadow: 1px 1px 10px rgb(93, 254, 202);
 }
 
-.glow-on-hover {
+.glow-on {
     width: 100%;
     height: 52px;
     border: none;
@@ -79,7 +79,7 @@ button {
     border-radius: 50px;
 }
 
-.glow-on-hover:before {
+.glow-on:before {
     content: '';
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
     position: absolute;
@@ -96,21 +96,32 @@ button {
     border-radius: 30px;
 }
 
-.glow-on-hover:active:after {
+.glow-on:active:after {
     background: transparent;
 }
 
-.glow-on-hover:before {
+.glow-on:before {
     opacity: 1;
 }
 
-.glow-on-hover:after {
+.glow-on:after {
     z-index: -1;
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     background: #262252;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+}
+.glow-on-stop-call:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #d80400;
     left: 0;
     top: 0;
     border-radius: 30px;

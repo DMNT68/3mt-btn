@@ -31,7 +31,7 @@ export const AiConnectPage = () => {
 				isCalling={isCalling}
 				label={isLoading ? textColling : isCalling ? textStopCall : textAskAnExpert}
 				onClick={isLoading ? () => {} : toggleCall}
-				className={isCalling ? 'btn-stopCall' : 'glow-on-hover'}
+				className={isCalling ? 'glow-on glow-on-stop-call' : 'glow-on'}
 			/>
 		</div>
 	);
