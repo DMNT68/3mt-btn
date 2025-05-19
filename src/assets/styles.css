@@ -66,54 +66,60 @@ button {
 	box-shadow: 1px 1px 10px rgb(93, 254, 202);
 }
 
-.btn-startCall-aic-pulse {
-	position: relative;
-	background-color: #262252 !important;
-	height: 52px;
-	font-weight: 600;
-	color: #fff !important;
-	background: none;
-	border: none;
-	cursor: pointer;
-	overflow: hidden;
-	transition: all 0.4s ease;
-	min-width: 200px;
-	width: 100%;
-	z-index: 1;
-	border-radius: 60px;
+.glow-on-hover {
+    width: 100%;
+    height: 52px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #262252 !important;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 50px;
 }
 
-.neon-pulse {
-	background: rgb(93, 254, 202);
-	box-shadow: 1px 1px 10px rgb(93, 254, 202);
-	border: 2px solid rgb(56, 52, 121) !important;
-	overflow: visible;
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 30px;
 }
 
-.neon-pulse::before,
-.neon-pulse::after {
-	content: '';
-	position: absolute;
-	inset: -4px;
-	border: 2px solid rgb(93, 254, 202);
-	border-radius: inherit;
-	animation: pulseOut 2s ease-out infinite;
-	opacity: 0;
+.glow-on-hover:active:after {
+    background: transparent;
 }
 
-.neon-pulse::after {
-	animation-delay: 1s;
+.glow-on-hover:before {
+    opacity: 1;
 }
 
-@keyframes pulseOut {
-	0% {
-		transform: scale(1);
-		opacity: 1;
-	}
-	100% {
-		transform: scale(1.5);
-		opacity: 0;
-	}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #262252;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 
 .btn-startCall-smc:hover {
