@@ -59,11 +59,61 @@ button {
 .btn-startCall-aic {
 	height: 52px;
 	background-color: #262252 !important;
-	border: 2px solid #383479 !important;
+	border: 2px solid rgb(56, 52, 121) !important;
 	color: white !important;
 	transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 	background: rgb(93, 254, 202);
 	box-shadow: 1px 1px 10px rgb(93, 254, 202);
+}
+
+.btn-startCall-aic-pulse {
+	position: relative;
+	background-color: #262252 !important;
+	height: 52px;
+	font-weight: 600;
+	color: #fff !important;
+	background: none;
+	border: none;
+	cursor: pointer;
+	overflow: hidden;
+	transition: all 0.4s ease;
+	min-width: 200px;
+	width: 100%;
+	z-index: 1;
+	border-radius: 60px;
+}
+
+.neon-pulse {
+	background: rgb(93, 254, 202);
+	box-shadow: 1px 1px 10px rgb(93, 254, 202);
+	border: 2px solid rgb(56, 52, 121) !important;
+	overflow: visible;
+}
+
+.neon-pulse::before,
+.neon-pulse::after {
+	content: '';
+	position: absolute;
+	inset: -4px;
+	border: 2px solid rgb(93, 254, 202);
+	border-radius: inherit;
+	animation: pulseOut 2s ease-out infinite;
+	opacity: 0;
+}
+
+.neon-pulse::after {
+	animation-delay: 1s;
+}
+
+@keyframes pulseOut {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.5);
+		opacity: 0;
+	}
 }
 
 .btn-startCall-smc:hover {
@@ -99,7 +149,6 @@ button {
 	opacity: 0.7;
 	margin-top: -5px;
 }
-
 
 .button-content {
 	display: flex;
