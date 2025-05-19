@@ -31,7 +31,7 @@ export const AiConnectPage = () => {
 				isCalling={isCalling}
 				label={isLoading ? textColling : isCalling ? textStopCall : textAskAnExpert}
 				onClick={isLoading ? () => {} : toggleCall}
-				className={isCalling ? 'btn-stopCall' : 'btn-startCall-aic-pulse neon-pulse'}
+				className={isCalling ? 'btn-stopCall' : 'btn-startCall-aic'}
 			/>
 		</div>
 	);
