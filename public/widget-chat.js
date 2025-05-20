@@ -655,7 +655,7 @@
 	}
 
 	async function startNewConversation() {
-        restoreSessionIdFromLocalStorage();
+		restoreSessionIdFromLocalStorage();
 		const data = [
 			{
 				action: 'loadPreviousSession',
@@ -785,9 +785,8 @@
 		}
 	}
 
+	const isMobile = window.innerWidth <= 600;
 	function toggleChat(open) {
-		const isMobile = window.innerWidth <= 600;
-
 		if (open) {
 			chatContainer.classList.add('open');
 			if (isMobile) document.body.classList.add('no-scroll');
@@ -798,7 +797,7 @@
 	}
 
 	// Initialization functions
-	toggleChat(true);
+	if (!isMobile) toggleChat(true);
 	loadMarkedLibrary();
 	renderCustomButton();
 	restoreMessagesFromLocalStorage();
