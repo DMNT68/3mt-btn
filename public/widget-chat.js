@@ -469,6 +469,82 @@
             overflow: hidden !important;
             touch-action: none !important;
         }
+
+        .tooltip-welcome {
+            padding: 15px 10px 30px 10px;
+            position: fixed;
+            bottom: 100px;
+            right: 50px;
+            width: 250px;
+            height: auto;
+            border-radius: 30px 30px 0px 30px !important;
+            color: black;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 61, 165, 0.3);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 350ms ease-in forwards;
+        }
+
+        .tooltip-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-button-tooltip {
+            color: gray;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .tooltip-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tooltip-title {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .tooltip-text {
+            font-size: 14px;
+            color: #838FA0;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .close-button-tooltip:hover {
+            color: black !important;
+        }
+
+        .close-button-tooltip svg{
+            width: 14px;
+            margin-right: 10px;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transition-property: box-shadow, transform;
+                transition-duration: 350ms;
+                transition-timing-function: ease;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24);
+            }
+
+            to {
+                opacity: 1;
+                box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.2);
+                transform: translateY(-x);
+            }
+        }   
     `;
 
 	// Load Geist font
@@ -565,6 +641,25 @@
 	chatContainer.innerHTML = newConversationHTML + chatInterfaceHTML;
 
 	const toggleButton = document.createElement('button');
+	const toolTipWelcome = document.createElement('div');
+
+	toolTipWelcome.className = 'tooltip-welcome';
+	const containerTooltip = `
+    <div class="tooltip-header">
+            <span></span>
+            <span class="close-button-tooltip">${config.icons.close}</span>
+        </div>
+        <div class="tooltip-content">
+            <h4 class="tooltip-title">${config.branding.welcomeText}</h4>
+            <p class="tooltip-text">Got a question? Let’s chat! we’ll help you out in seconds.</p>
+        </div>
+    `;
+	toolTipWelcome.innerHTML = containerTooltip;
+	widgetContainer.appendChild(toolTipWelcome);
+
+	toolTipWelcome.className = `tooltip-welcome${
+		config.style.position === 'left' ? ' position-left' : ''
+	}`;
 	toggleButton.className = `chat-toggle${config.style.position === 'left' ? ' position-left' : ''}`;
 	toggleButton.innerHTML = `${config.icons.msg}`;
 
@@ -580,6 +675,8 @@
 	const backButton = chatContainer.querySelector('.back-button');
 	const trashButton = chatContainer.querySelector('.trash-button');
 	const closeButtons = chatContainer.querySelectorAll('.close-button');
+	const closeButtonTooltip = toolTipWelcome.querySelector('.close-button-tooltip');
+    const contentTooltip = toolTipWelcome.querySelector('.tooltip-content');
 	let initConversation = false;
 
 	// Handle click events
@@ -627,8 +724,17 @@
 	closeButtons.forEach((button) => {
 		button.addEventListener('click', () => {
 			toggleChat(false);
+            toolTipWelcome.style.display = 'flex';
 		});
 	});
+
+	closeButtonTooltip.addEventListener('click', () => {
+		toolTipWelcome.style.display = 'none';
+	});
+
+    contentTooltip.addEventListener('click', () => {
+        toggleChat(true);
+    });
 
 	// Functions
 	function generateUUID() {
