@@ -480,6 +480,7 @@
             border-radius: 30px 30px 0px 30px !important;
             color: black;
             border: none;
+            background: var(--chat--color-background-secondary);
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0, 61, 165, 0.3);
             z-index: 999;
@@ -508,6 +509,7 @@
 
         .tooltip-title {
             margin: 0;
+            color: var(--chat--color-font);
             font-size: 18px;
             font-weight: bold;
             text-align: center;
