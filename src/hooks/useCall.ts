@@ -41,7 +41,7 @@ export const useCall = (agentId: string, client: ClientAiConnect) => {
 				setIsLoading(false);
 			} catch (error) {
 				setIsLoading(false);
-				console.log('❌ Error:', error);
+				console.log('❌', error);
 			}
 		}
 	};
