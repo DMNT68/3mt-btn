@@ -1,6 +1,7 @@
 import { ClientAiConnect, RegisterCallResponse } from '../types';
 
-const urlBase = 'https://aiconnect.flec-ec.com';
+// const urlBase = 'https://aiconnect.flec-ec.com';
+const urlBase = 'http://localhost:4000';
 
 /**
  * Registra una nueva llamada con el agente de Retell
@@ -21,7 +22,13 @@ export async function registerCall(
 		});
 
 		if (!response.ok) {
-			throw new Error(`Error en la llamada al backend: ${response.status}`);
+			if (response.status === 429) {
+				const msg = await response.text();
+				alert(msg);
+				throw new Error(msg);
+			} else {
+				throw new Error(`Error en la llamada al backend: ${response.status}`);
+			}
 		}
 
 		const data: RegisterCallResponse = await response.json();
