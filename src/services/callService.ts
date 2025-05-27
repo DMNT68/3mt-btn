@@ -1,6 +1,6 @@
 import { ClientAiConnect, RegisterCallResponse } from '../types';
 
-const urlBase = 'https://aiconnect.flec-sec.com';
+const urlBase = 'https://aiconnect.flec-ec.com';
 
 /**
  * Registra una nueva llamada con el agente de Retell
