@@ -8,7 +8,7 @@ const retellWebClient = new RetellWebClient();
 export const useCall = (
 	agentId: string,
 	client: ClientAiConnect,
-	variables?: { client_name: string }
+	variables?: { client_name: string; client_email: string; client_phone: string }
 ) => {
 	const [isCalling, setIsCalling] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
