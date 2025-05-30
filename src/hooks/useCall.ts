@@ -5,7 +5,11 @@ import { ClientAiConnect } from '../types';
 
 const retellWebClient = new RetellWebClient();
 
-export const useCall = (agentId: string, client: ClientAiConnect) => {
+export const useCall = (
+	agentId: string,
+	client: ClientAiConnect,
+	variables?: { client_name: string }
+) => {
 	const [isCalling, setIsCalling] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -33,7 +37,7 @@ export const useCall = (agentId: string, client: ClientAiConnect) => {
 		} else {
 			setIsLoading(true);
 			try {
-				const { data } = await registerCall(agentId, client);
+				const { data } = await registerCall(agentId, client, variables);
 				if (data.access_token) {
 					await retellWebClient.startCall({ accessToken: data.access_token });
 					setIsCalling(true);

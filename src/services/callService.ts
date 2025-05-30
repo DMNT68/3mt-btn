@@ -9,7 +9,8 @@ const urlBase = 'https://aiconnect.flec-ec.com';
  */
 export async function registerCall(
 	agentId: string,
-	client: ClientAiConnect
+	client: ClientAiConnect,
+	variables?: { client_name: string }
 ): Promise<RegisterCallResponse> {
 	try {
 		const response = await fetch(`${urlBase}/api/aiconnect/${client}`, {
@@ -17,7 +18,12 @@ export async function registerCall(
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ agent_id: agentId }),
+			body: JSON.stringify({
+				agent_id: agentId,
+				retell_llm_dynamic_variables: {
+					...variables,
+				},
+			}),
 		});
 
 		if (!response.ok) {
