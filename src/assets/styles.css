@@ -67,70 +67,87 @@ button {
 }
 
 .glow-on {
-    width: 100%;
-    height: 52px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background-color: #262252 !important;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 50px;
+	width: 100%;
+	height: 52px;
+	border: none;
+	outline: none;
+	color: #fff;
+	background-color: #262252 !important;
+	cursor: pointer;
+	position: relative;
+	z-index: 0;
+	border-radius: 50px;
 }
 
 .glow-on:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 30px;
+	content: '';
+	background: linear-gradient(
+		45deg,
+		#ff0000,
+		#ff7300,
+		#fffb00,
+		#48ff00,
+		#00ffd5,
+		#002bff,
+		#7a00ff,
+		#ff00c8,
+		#ff0000
+	);
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background-size: 400%;
+	z-index: -1;
+	filter: blur(5px);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: glowing 20s linear infinite;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	border-radius: 30px;
 }
 
 .glow-on:active:after {
-    background: transparent;
+	background: transparent;
 }
 
 .glow-on:before {
-    opacity: 1;
+	opacity: 1;
 }
 
 .glow-on:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #262252;
-    left: 0;
-    top: 0;
-    border-radius: 30px;
+	z-index: -1;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #262252;
+	left: 0;
+	top: 0;
+	border-radius: 30px;
 }
 .glow-on-stop-call:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #d80400;
-    left: 0;
-    top: 0;
-    border-radius: 30px;
+	z-index: -1;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #d80400;
+	left: 0;
+	top: 0;
+	border-radius: 30px;
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
 }
 
 .btn-startCall-smc:hover {
@@ -171,4 +188,26 @@ button {
 	display: flex;
 	align-items: center;
 	gap: 8px;
+}
+
+.container-realestate {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.input-form {
+	width: 250px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 30px;
 }
