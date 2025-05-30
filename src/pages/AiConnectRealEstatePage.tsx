@@ -8,7 +8,11 @@ const agentId = 'agent_d06683cb7d2ccac1c8e3412377';
 const client: ClientAiConnect = 'aiconnect';
 
 export const AiConnectRealEstatePage = () => {
-	const [name, setName] = useState('');
+	const [form, setForm] = useState({
+		name: '',
+		email: '',
+		phone: '',
+	});
 
 	const queryParameters = new URLSearchParams(window.location.search);
 	const language =
@@ -19,40 +23,66 @@ export const AiConnectRealEstatePage = () => {
 			: 'en';
 
 	const { isCalling, toggleCall, isLoading } = useCall(agentId, client, {
-		client_name: name,
+		client_name: form.name,
+		client_email: form.email,
+		client_phone: form.phone,
 	});
+
+	const onChange = (e: any) => setForm({ ...form, [e.target.name]: e.target.value });
+
+	const onClick = () => {
+		if (form.name === '' && form.email === '' && form.phone === '') {
+			alert(textAlert);
+		} else if (isLoading) {
+			() => {};
+		} else {
+			toggleCall();
+		}
+	};
 
 	const textColling = language === 'en' ? 'Calling...' : 'Llamando...';
 	const textStopCall = language === 'en' ? 'Stop call' : 'Detener llamada';
 	const textAskAnExpert = language === 'en' ? 'Ask an expert' : 'Preguntar a un experto';
+	const textAlert = language === 'en' ? 'Fill all the fields' : 'Llenar todos los campos';
+	const textName = language === 'en' ? 'Name' : 'Nombre';
+	const textEmail = language === 'en' ? 'Email' : 'Correo';
+	const textPhone = language === 'en' ? 'Phone' : 'Teléfono';
 
 	return (
 		<div
-			style={{
-				height: '100vh',
-				display: 'flex',
-				flexDirection: 'column',
-				justifyContent: 'center',
-				alignItems: 'center',
-				gap: '20px',
-			}}
+			className='container-realestate'
 		>
-			<div>
+			<div className="form">
 				<input
-					style={{ width: '250px', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
+					className="input-form"
 					type="text"
-					placeholder="Escribe tu nombre para hacer la llamada"
+					placeholder={textName}
 					name="name"
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-					className="input"
+					value={form.name}
+					onChange={onChange}
+				/>
+				<input
+					className="input-form"
+					type="text"
+					placeholder={textEmail}
+					name="email"
+					value={form.email}
+					onChange={onChange}
+				/>
+				<input
+					className="input-form"
+					type="text"
+					placeholder={textPhone}
+					name="phone"
+					value={form.phone}
+					onChange={onChange}
 				/>
 			</div>
 			<div className="app-container app-container-aic">
 				<CallButton
 					isCalling={isCalling}
 					label={isLoading ? textColling : isCalling ? textStopCall : textAskAnExpert}
-					onClick={name === '' ? () => { alert('Ingresa tu nombre') } : isLoading ? () => {} : toggleCall}
+					onClick={onClick}
 					className={isCalling ? 'glow-on glow-on-stop-call' : 'glow-on'}
 				/>
 			</div>
