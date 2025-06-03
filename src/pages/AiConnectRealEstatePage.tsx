@@ -4,7 +4,7 @@ import '../assets/styles.css';
 import { ClientAiConnect } from '../types';
 import { useState } from 'react';
 
-const agentId = 'agent_d06683cb7d2ccac1c8e3412377';
+const agentId = 'agent_c2786b37cc68eb9b4c1ba2710d';
 const client: ClientAiConnect = 'aiconnect';
 
 export const AiConnectRealEstatePage = () => {
@@ -63,7 +63,7 @@ export const AiConnectRealEstatePage = () => {
 				/>
 				<input
 					className="input-form"
-					type="text"
+					type="email"
 					placeholder={textEmail}
 					name="email"
 					value={form.email}
