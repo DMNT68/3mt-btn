@@ -211,3 +211,34 @@ button {
 	border: 1px solid #ccc;
 	border-radius: 30px;
 }
+
+.select-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: center;
+	margin: 1rem 0;
+}
+
+.select-label {
+	color: #000;
+	font-size: 1.5rem;
+}
+
+.select-dark {
+	background-color: #1f2937; /* gris oscuro */
+	color: #ffffff;
+	border: 1px solid #4b5563; /* borde gris */
+	border-radius: 6px;
+	padding: 0.5rem 2rem;
+	font-size: 1rem;
+	appearance: none;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.select-dark:focus {
+	border-color: #3b82f6;
+	box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4); /* azul suave */
+	outline: none;
+}

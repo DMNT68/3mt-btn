@@ -2,37 +2,56 @@ import CallButton from '../components/CallButton';
 import { useCall } from '../hooks/useCall';
 import '../assets/styles.css';
 import { ClientAiConnect } from '../types';
+import { useState } from 'react';
 
 const agentIdEN = 'agent_e4248813362415cbefdb9d61f0';
 const agentIdES = 'agent_23c0a869a6160a558f02ca51b2';
 const client: ClientAiConnect = 'aiconnect';
 
 export const AiConnectPage = () => {
-	const queryParameters = new URLSearchParams(window.location.search);
-	const language =
-		queryParameters.get('language') === null
-			? 'en'
-			: queryParameters.get('language') === 'es'
-			? 'es'
-			: 'en';
+	const [selecLanguage, setSelecLanguage] = useState('en');
+
+	// const queryParameters = new URLSearchParams(window.location.search);
+	// const language =
+	// 	queryParameters.get('language') === null
+	// 		? 'en'
+	// 		: queryParameters.get('language') === 'es'
+	// 		? 'es'
+	// 		: 'en';
 
 	const { isCalling, toggleCall, isLoading } = useCall(
-		language === 'en' ? agentIdEN : agentIdES,
+		selecLanguage === 'en' ? agentIdEN : agentIdES,
 		client
 	);
 
-	const textColling = language === 'en' ? 'Calling...' : 'Llamando...';
-	const textStopCall = language === 'en' ? 'Stop call' : 'Detener llamada';
-	const textAskAnExpert = language === 'en' ? 'Ask an expert' : 'Preguntar a un experto';
+	const textColling = selecLanguage === 'en' ? 'Calling...' : 'Llamando...';
+	const textStopCall = selecLanguage === 'en' ? 'Stop call' : 'Detener llamada';
+	const textAskAnExpert = selecLanguage === 'en' ? 'Ask an expert' : 'Preguntar a un experto';
 
 	return (
-		<div className="app-container app-container-aic">
-			<CallButton
-				isCalling={isCalling}
-				label={isLoading ? textColling : isCalling ? textStopCall : textAskAnExpert}
-				onClick={isLoading ? () => {} : toggleCall}
-				className={isCalling ? 'glow-on glow-on-stop-call' : 'glow-on'}
-			/>
-		</div>
+		<>
+			<div className="select-container">
+				<label htmlFor="language-select" className="select-label">
+					Choose your language:
+				</label>
+				<select
+					name="language"
+					id="language-select"
+					className="select-dark"
+					onChange={(e) => setSelecLanguage(e.target.value)}
+				>
+					<option value="en">English (en)</option>
+					<option value="es">Spanish (es)</option>
+				</select>
+			</div>
+			<div className="app-container app-container-aic">
+				<CallButton
+					isCalling={isCalling}
+					label={isLoading ? textColling : isCalling ? textStopCall : textAskAnExpert}
+					onClick={isLoading ? () => {} : toggleCall}
+					className={isCalling ? 'glow-on glow-on-stop-call' : 'glow-on'}
+				/>
+			</div>
+		</>
 	);
 };
