@@ -12,7 +12,7 @@ export const InmobiliariaJorge = () => {
 	const { isCalling, toggleCall, isLoading } = useCall(agentId, client);
 
 	return (
-		<div className="app-container">
+		<div className="app-container app-container-aic">
 			<CallButton
 				className={isCalling ? 'btn-stopCall threemt' : 'btn-startCall-3mt'}
 				isCalling={isCalling}
