@@ -4,6 +4,7 @@ import { WorkShopCityPage } from '../pages/WorkShopCityPage';
 import { SellMyCarPage } from '../pages/SellMyCarPage';
 import { AiConnectPage } from '../pages/AiConnectPage';
 import { AiConnectRealEstatePage } from '../pages/AiConnectRealEstatePage';
+import { InmobiliariaJorge } from '../pages/InmobiliariaJorge';
 
 export const AppRouter = () => {
 	return (
@@ -13,6 +14,7 @@ export const AppRouter = () => {
 			<Route path="sellMyCar" element={<SellMyCarPage />} />
 			<Route path="aiconnect" element={<AiConnectPage />} />
 			<Route path="realestate" element={<AiConnectRealEstatePage />} />
+			<Route path="inmobiliaria" element={<InmobiliariaJorge />} />
 		</Routes>
 	);
 };
