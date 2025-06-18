@@ -107,7 +107,7 @@ export const Comprauto = () => {
 			<header className="border-b bg-white sticky top-0 z-50">
 				<div className="container mx-auto px-4">
 					<div className="flex items-center justify-between h-16">
-						<a href="/" className="flex items-center space-x-2">
+						<a href="#" className="flex items-center space-x-2">
 							<div className="w-8 h-8 bg-[#5bcdb4] rounded-lg flex items-center justify-center">
 								<Gavel className="w-4 h-4 text-white" />
 							</div>
@@ -115,16 +115,16 @@ export const Comprauto = () => {
 						</a>
 
 						<nav className="hidden md:flex items-center space-x-8">
-							<a href="/subastas" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
+							<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
 								Subastas Activas
 							</a>
-							<a href="/categorias" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
+							<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
 								Categorías
 							</a>
-							<a href="/como-funciona" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
+							<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
 								Cómo Funciona
 							</a>
-							<a href="/vender" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
+							<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
 								Vender
 							</a>
 						</nav>
