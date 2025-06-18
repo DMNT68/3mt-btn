@@ -5,6 +5,7 @@ import { SellMyCarPage } from '../pages/SellMyCarPage';
 import { AiConnectPage } from '../pages/AiConnectPage';
 import { AiConnectRealEstatePage } from '../pages/AiConnectRealEstatePage';
 import { InmobiliariaJorge } from '../pages/InmobiliariaJorge';
+import { Comprauto } from '../pages/Comprauto';
 
 export const AppRouter = () => {
 	return (
@@ -15,6 +16,7 @@ export const AppRouter = () => {
 			<Route path="aiconnect" element={<AiConnectPage />} />
 			<Route path="realestate" element={<AiConnectRealEstatePage />} />
 			<Route path="inmobiliaria" element={<InmobiliariaJorge />} />
+			<Route path="comprauto" element={<Comprauto />} />
 		</Routes>
 	);
 };
