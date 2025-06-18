@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 body {
 	margin: 5px;
 }
@@ -12,7 +14,7 @@ body {
 	padding-inline: 20px;
 }
 
-button {
+.btn {
 	width: 100%;
 	font-size: 1.1rem;
 	padding: 12px 24px;
@@ -29,6 +31,17 @@ button {
 }
 
 /* Botón para iniciar llamada */
+.btn-startCall-comprauto {
+	width: 100%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 50px;
+	/* margin-bottom: 16px; */
+}
+
 .btn-startCall-3mt {
 	height: 50px;
 	background: linear-gradient(190deg, #003da5 0%, #2e81c4 100%);
