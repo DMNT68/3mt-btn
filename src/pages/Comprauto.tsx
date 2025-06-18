@@ -4,7 +4,6 @@ import '../assets/styles.css';
 import { ClientAiConnect } from '../types';
 import CallButton from '../components/CallButton';
 import {
-	Search,
 	MapPin,
 	Settings,
 	Star,
