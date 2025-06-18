@@ -15,7 +15,7 @@ export const SellMyCarPage = () => {
 				isCalling={isCalling}
 				label={isLoading ? 'Calling...' : isCalling ? 'Stop call' : 'Ask an expert'}
 				onClick={isLoading ? () => {} : toggleCall}
-				className={isCalling ? 'btn-stopCall' : 'btn-startCall-smc'}
+				className={isCalling ? 'btn btn-stopCall' : 'btn btn-startCall-smc'}
 			/>
 		</div>
 	);

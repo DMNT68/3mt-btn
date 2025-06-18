@@ -49,7 +49,7 @@ export const AiConnectPage = () => {
 					isCalling={isCalling}
 					label={isLoading ? textColling : isCalling ? textStopCall : textAskAnExpert}
 					onClick={isLoading ? () => {} : toggleCall}
-					className={isCalling ? 'glow-on glow-on-stop-call' : 'glow-on'}
+					className={isCalling ? 'btn glow-on glow-on-stop-call' : 'btn glow-on'}
 				/>
 			</div>
 		</>

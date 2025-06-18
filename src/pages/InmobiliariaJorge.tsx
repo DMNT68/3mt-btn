@@ -14,9 +14,9 @@ export const InmobiliariaJorge = () => {
 	return (
 		<div className="app-container app-container-aic">
 			<CallButton
-				className={isCalling ? 'btn-stopCall threemt' : 'btn-startCall-3mt'}
+				className={isCalling ? 'btn btn-stopCall threemt' : 'btn btn-startCall-3mt'}
 				isCalling={isCalling}
-				label={isLoading ? 'Lamando...' : isCalling ? 'Detener llamada' : 'Pregunta a un experto'}
+				label={isLoading ? 'Llamando...' : isCalling ? 'Detener llamada' : 'Pregunta a un experto'}
 				onClick={isLoading ? () => {} : toggleCall}
 			/>
 		</div>

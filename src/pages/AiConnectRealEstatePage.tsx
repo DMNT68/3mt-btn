@@ -49,9 +49,7 @@ export const AiConnectRealEstatePage = () => {
 	const textPhone = language === 'en' ? 'Phone' : 'Teléfono';
 
 	return (
-		<div
-			className='container-realestate'
-		>
+		<div className="container-realestate">
 			<div className="form">
 				<input
 					className="input-form"
@@ -83,7 +81,7 @@ export const AiConnectRealEstatePage = () => {
 					isCalling={isCalling}
 					label={isLoading ? textColling : isCalling ? textStopCall : textAskAnExpert}
 					onClick={onClick}
-					className={isCalling ? 'glow-on glow-on-stop-call' : 'glow-on'}
+					className={isCalling ? 'btn glow-on glow-on-stop-call' : 'btn glow-on'}
 				/>
 			</div>
 		</div>
