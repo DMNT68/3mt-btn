@@ -656,7 +656,7 @@
         </div>
         <div class="tooltip-content">
             <h4 class="tooltip-title">${config.branding.welcomeText}</h4>
-            <p class="tooltip-text">${config.brandig.subtitleWelcome}</p>
+            <p class="tooltip-text">${config.branding.subtitleWelcome}</p>
         </div>
     `;
 	toolTipWelcome.innerHTML = containerTooltip;
