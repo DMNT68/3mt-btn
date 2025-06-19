@@ -11,6 +11,7 @@
 			name: '',
 			welcomeText: '',
 			responseTimeText: '',
+			subtitleWelcome: 'Got a question? Let’s chat! we’ll help you out in seconds.',
 			poweredBy: {
 				text: '',
 				link: '#',
@@ -146,8 +147,9 @@
         }
 
         .n8n-chat-widget .chatbot-title {
+            margin-bottom:24px;
             font-size: 16px;
-            font-weight: semibold;
+            font-weight: 600;
             color: var(--chat--color-font);
         }
 
@@ -190,9 +192,10 @@
 
         .n8n-chat-widget .welcome-text {
             font-size: 24px;
-            font-weight: semibold;
+            font-weight: 600;
             color: var(--chat--color-font);
             margin-bottom: 24px;
+            margin-top: 24px;
             line-height: 1.3;
         }
 
@@ -653,7 +656,7 @@
         </div>
         <div class="tooltip-content">
             <h4 class="tooltip-title">${config.branding.welcomeText}</h4>
-            <p class="tooltip-text">Got a question? Let’s chat! we’ll help you out in seconds.</p>
+            <p class="tooltip-text">${config.brandig.subtitleWelcome}</p>
         </div>
     `;
 	toolTipWelcome.innerHTML = containerTooltip;
@@ -678,7 +681,7 @@
 	const trashButton = chatContainer.querySelector('.trash-button');
 	const closeButtons = chatContainer.querySelectorAll('.close-button');
 	const closeButtonTooltip = toolTipWelcome.querySelector('.close-button-tooltip');
-    const contentTooltip = toolTipWelcome.querySelector('.tooltip-content');
+	const contentTooltip = toolTipWelcome.querySelector('.tooltip-content');
 	let initConversation = false;
 
 	// Handle click events
@@ -726,7 +729,7 @@
 	closeButtons.forEach((button) => {
 		button.addEventListener('click', () => {
 			toggleChat(false);
-            toolTipWelcome.style.display = 'flex';
+			toolTipWelcome.style.display = 'flex';
 		});
 	});
 
@@ -734,9 +737,9 @@
 		toolTipWelcome.style.display = 'none';
 	});
 
-    contentTooltip.addEventListener('click', () => {
-        toggleChat(true);
-    });
+	contentTooltip.addEventListener('click', () => {
+		toggleChat(true);
+	});
 
 	// Functions
 	function generateUUID() {
