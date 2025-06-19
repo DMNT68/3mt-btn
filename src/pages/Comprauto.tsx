@@ -22,6 +22,7 @@ import {
 	Shirt,
 	Laptop,
 } from 'lucide-react';
+import ChatWidget from '../components/ChatBot';
 
 const agentId = 'agent_23e56d47885bbe708e1d108e46';
 const client: ClientAiConnect = 'aiconnect';
@@ -102,72 +103,77 @@ export const Comprauto = () => {
 	];
 
 	return (
-		<div className="min-h-screen bg-white">
-			{/* Header */}
-			<header className="border-b bg-white sticky top-0 z-50">
-				<div className="container mx-auto px-4">
-					<div className="flex items-center justify-between h-16">
-						<a href="#" className="flex items-center space-x-2">
-							<div className="w-8 h-8 bg-[#5bcdb4] rounded-lg flex items-center justify-center">
-								<Gavel className="w-4 h-4 text-white" />
+		<>
+			<div className="min-h-screen bg-white">
+				{/* Header */}
+				<header className="border-b bg-white sticky top-0 z-50">
+					<div className="container mx-auto px-4">
+						<div className="flex items-center justify-between h-16">
+							<a href="#" className="flex items-center space-x-2">
+								<div className="w-8 h-8 bg-[#5bcdb4] rounded-lg flex items-center justify-center">
+									<Gavel className="w-4 h-4 text-white" />
+								</div>
+								<span className="text-xl font-bold text-gray-900">Compra Automática</span>
+							</a>
+
+							<nav className="hidden md:flex items-center space-x-8">
+								<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
+									Subastas Activas
+								</a>
+								<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
+									Categorías
+								</a>
+								<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
+									Cómo Funciona
+								</a>
+								<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
+									Vender
+								</a>
+							</nav>
+
+							<div className="flex items-center space-x-4">
+								<button className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
+									Iniciar Sesión
+								</button>
+								<button className="px-4 py-2 text-sm font-medium text-white bg-[#5bcdb4] border border-transparent rounded-md hover:bg-[#4db5a0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
+									Registrarse
+								</button>
 							</div>
-							<span className="text-xl font-bold text-gray-900">Compra Automática</span>
-						</a>
-
-						<nav className="hidden md:flex items-center space-x-8">
-							<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
-								Subastas Activas
-							</a>
-							<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
-								Categorías
-							</a>
-							<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
-								Cómo Funciona
-							</a>
-							<a href="#" className="text-gray-700 hover:text-[#5bcdb4] font-medium">
-								Vender
-							</a>
-						</nav>
-
-						<div className="flex items-center space-x-4">
-							<button className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
-								Iniciar Sesión
-							</button>
-							<button className="px-4 py-2 text-sm font-medium text-white bg-[#5bcdb4] border border-transparent rounded-md hover:bg-[#4db5a0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
-								Registrarse
-							</button>
 						</div>
 					</div>
-				</div>
-			</header>
+				</header>
 
-			{/* Hero Section */}
-			<section className="bg-gradient-to-r from-[#5bcdb4] to-[#4db5a0] text-white py-16">
-				<div className="container mx-auto px-4">
-					<div className="max-w-4xl mx-auto text-center">
-						<h1 className="text-4xl md:text-5xl font-bold mb-6">
-							Subastas y Ventas de Autos Siniestrados, Usados y Más
-						</h1>
-						<p className="text-xl mb-8 text-teal-100">
-							La plataforma líder en Ecuador para subastas de vehículos, tecnología, mobiliario y
-							productos diversos
-						</p>
-						{/* call button */}
-						<CallButton
-							className={
-								isCalling
-									? 'btn-startCall-comprauto px-6 py-3 text-lg font-medium text-white bg-[#f44336] border border-red-900 rounded-md hover:bg-[#e53935] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f44336]'
-									: 'btn-startCall-comprauto px-6 py-3 text-lg font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000]'
-							}
-							isCalling={isCalling}
-							label={
-								isLoading ? 'Llamando...' : isCalling ? 'Detener llamada' : 'Pregunta a un experto'
-							}
-							onClick={isLoading ? () => {} : toggleCall}
-						/>
+				{/* Hero Section */}
+				<section className="bg-gradient-to-r from-[#5bcdb4] to-[#4db5a0] text-white py-16">
+					<div className="container mx-auto px-4">
+						<div className="max-w-4xl mx-auto text-center">
+							<h1 className="text-4xl md:text-5xl font-bold mb-6">
+								Subastas y Ventas de Autos Siniestrados, Usados y Más
+							</h1>
+							<p className="text-xl mb-8 text-teal-100">
+								La plataforma líder en Ecuador para subastas de vehículos, tecnología, mobiliario y
+								productos diversos
+							</p>
+							{/* call button */}
+							<CallButton
+								className={
+									isCalling
+										? 'btn-startCall-comprauto px-6 py-3 text-lg font-medium text-white bg-[#f44336] border border-red-900 rounded-md hover:bg-[#e53935] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f44336]'
+										: 'btn-startCall-comprauto px-6 py-3 text-lg font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000]'
+								}
+								isCalling={isCalling}
+								label={
+									isLoading
+										? 'Llamando...'
+										: isCalling
+										? 'Detener llamada'
+										: 'Pregunta a un experto'
+								}
+								onClick={isLoading ? () => {} : toggleCall}
+							/>
 
-						{/* Search Form */}
-						{/* <div className="bg-white rounded-lg p-6 shadow-xl">
+							{/* Search Form */}
+							{/* <div className="bg-white rounded-lg p-6 shadow-xl">
 							<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
 								<select className="w-full px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5bcdb4] focus:border-transparent">
 									<option value="">Categoría</option>
@@ -208,331 +214,351 @@ export const Comprauto = () => {
 								</button>
 							</div>
 						</div> */}
-					</div>
-				</div>
-			</section>
-
-			{/* Stats Section */}
-			<section className="py-12 bg-gray-50">
-				<div className="container mx-auto px-4">
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-						<div>
-							<div className="text-3xl font-bold text-[#5bcdb4] mb-2">8,500+</div>
-							<div className="text-gray-600">Productos en Subasta</div>
-						</div>
-						<div>
-							<div className="text-3xl font-bold text-[#5bcdb4] mb-2">150+</div>
-							<div className="text-gray-600">Subastas Diarias</div>
-						</div>
-						<div>
-							<div className="text-3xl font-bold text-[#5bcdb4] mb-2">25,000+</div>
-							<div className="text-gray-600">Compradores Activos</div>
-						</div>
-						<div>
-							<div className="text-3xl font-bold text-[#5bcdb4] mb-2">95%</div>
-							<div className="text-gray-600">Satisfacción</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			{/* Active Auctions */}
-			<section className="py-16">
-				<div className="container mx-auto px-4">
-					<div className="text-center mb-12">
-						<h2 className="text-3xl font-bold text-gray-900 mb-4">Subastas Activas</h2>
-						<p className="text-gray-600 max-w-2xl mx-auto">
-							Participa en nuestras subastas en tiempo real y encuentra las mejores ofertas
-						</p>
+				{/* Stats Section */}
+				<section className="py-12 bg-gray-50">
+					<div className="container mx-auto px-4">
+						<div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+							<div>
+								<div className="text-3xl font-bold text-[#5bcdb4] mb-2">8,500+</div>
+								<div className="text-gray-600">Productos en Subasta</div>
+							</div>
+							<div>
+								<div className="text-3xl font-bold text-[#5bcdb4] mb-2">150+</div>
+								<div className="text-gray-600">Subastas Diarias</div>
+							</div>
+							<div>
+								<div className="text-3xl font-bold text-[#5bcdb4] mb-2">25,000+</div>
+								<div className="text-gray-600">Compradores Activos</div>
+							</div>
+							<div>
+								<div className="text-3xl font-bold text-[#5bcdb4] mb-2">95%</div>
+								<div className="text-gray-600">Satisfacción</div>
+							</div>
+						</div>
 					</div>
+				</section>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-						{activeAuctions.map((auction) => (
-							<div
-								key={auction.id}
-								className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-							>
-								<div className="relative">
-									<img
-										src={auction.image || '/placeholder.svg'}
-										alt={auction.title}
-										width={300}
-										height={200}
-										className="w-full h-48 object-cover"
-									/>
-									<span className="absolute top-2 left-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#5bcdb4] text-white">
-										{auction.category}
-									</span>
-									<span
-										className={`absolute top-2 right-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white ${
-											auction.condition === 'Siniestrado' ? 'bg-red-500' : 'bg-blue-500'
-										}`}
-									>
-										{auction.condition}
-									</span>
-								</div>
-								<div className="p-4">
-									<h3 className="font-semibold text-lg mb-2 line-clamp-2">{auction.title}</h3>
+				{/* Active Auctions */}
+				<section className="py-16">
+					<div className="container mx-auto px-4">
+						<div className="text-center mb-12">
+							<h2 className="text-3xl font-bold text-gray-900 mb-4">Subastas Activas</h2>
+							<p className="text-gray-600 max-w-2xl mx-auto">
+								Participa en nuestras subastas en tiempo real y encuentra las mejores ofertas
+							</p>
+						</div>
 
-									<div className="flex items-center justify-between mb-3">
-										<div>
-											<div className="text-sm text-gray-500">Oferta actual</div>
-											<div className="text-2xl font-bold text-[#5bcdb4]">{auction.currentBid}</div>
-										</div>
-										<div className="text-right">
-											<div className="text-sm text-gray-500">Tiempo restante</div>
-											<div className="text-lg font-semibold text-red-600 flex items-center">
-												<Clock className="w-4 h-4 mr-1" />
-												{auction.timeLeft}
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+							{activeAuctions.map((auction) => (
+								<div
+									key={auction.id}
+									className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+								>
+									<div className="relative">
+										<img
+											src={auction.image || '/placeholder.svg'}
+											alt={auction.title}
+											width={300}
+											height={200}
+											className="w-full h-48 object-cover"
+										/>
+										<span className="absolute top-2 left-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#5bcdb4] text-white">
+											{auction.category}
+										</span>
+										<span
+											className={`absolute top-2 right-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white ${
+												auction.condition === 'Siniestrado' ? 'bg-red-500' : 'bg-blue-500'
+											}`}
+										>
+											{auction.condition}
+										</span>
+									</div>
+									<div className="p-4">
+										<h3 className="font-semibold text-lg mb-2 line-clamp-2">{auction.title}</h3>
+
+										<div className="flex items-center justify-between mb-3">
+											<div>
+												<div className="text-sm text-gray-500">Oferta actual</div>
+												<div className="text-2xl font-bold text-[#5bcdb4]">
+													{auction.currentBid}
+												</div>
+											</div>
+											<div className="text-right">
+												<div className="text-sm text-gray-500">Tiempo restante</div>
+												<div className="text-lg font-semibold text-red-600 flex items-center">
+													<Clock className="w-4 h-4 mr-1" />
+													{auction.timeLeft}
+												</div>
 											</div>
 										</div>
-									</div>
 
-									<div className="space-y-2 text-sm text-gray-600 mb-4">
-										<div className="flex items-center justify-between">
-											<span className="flex items-center">
-												<TrendingUp className="w-4 h-4 mr-1" />
-												{auction.bids} ofertas
-											</span>
-											<span className="flex items-center">
-												<MapPin className="w-4 h-4 mr-1" />
-												{auction.location}
-											</span>
+										<div className="space-y-2 text-sm text-gray-600 mb-4">
+											<div className="flex items-center justify-between">
+												<span className="flex items-center">
+													<TrendingUp className="w-4 h-4 mr-1" />
+													{auction.bids} ofertas
+												</span>
+												<span className="flex items-center">
+													<MapPin className="w-4 h-4 mr-1" />
+													{auction.location}
+												</span>
+											</div>
 										</div>
+
+										<button className="w-full flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#5bcdb4] border border-transparent rounded-md hover:bg-[#4db5a0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
+											<Gavel className="w-4 h-4 mr-2" />
+											Ofertar Ahora
+										</button>
 									</div>
-
-									<button className="w-full flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#5bcdb4] border border-transparent rounded-md hover:bg-[#4db5a0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
-										<Gavel className="w-4 h-4 mr-2" />
-										Ofertar Ahora
-									</button>
 								</div>
-							</div>
-						))}
-					</div>
+							))}
+						</div>
 
-					<div className="text-center mt-8">
-						<button className="mr-4 px-6 py-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
-							Ver Todas las Subastas
-						</button>
-						<button className="px-6 py-3 text-base font-medium text-white bg-[#5bcdb4] border border-transparent rounded-md hover:bg-[#4db5a0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
-							<Gavel className="w-5 h-5 mr-2 inline" />
-							Crear Alerta de Subasta
-						</button>
+						<div className="text-center mt-8">
+							<button className="mr-4 px-6 py-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
+								Ver Todas las Subastas
+							</button>
+							<button className="px-6 py-3 text-base font-medium text-white bg-[#5bcdb4] border border-transparent rounded-md hover:bg-[#4db5a0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5bcdb4]">
+								<Gavel className="w-5 h-5 mr-2 inline" />
+								Crear Alerta de Subasta
+							</button>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			{/* Categories Section */}
-			<section className="py-16 bg-gray-50">
-				<div className="container mx-auto px-4">
-					<div className="text-center mb-12">
-						<h2 className="text-3xl font-bold text-gray-900 mb-4">Nuestras Categorías</h2>
-						<p className="text-gray-600">
-							Explora todas las categorías disponibles en nuestras subastas
-						</p>
-					</div>
+				{/* Categories Section */}
+				<section className="py-16 bg-gray-50">
+					<div className="container mx-auto px-4">
+						<div className="text-center mb-12">
+							<h2 className="text-3xl font-bold text-gray-900 mb-4">Nuestras Categorías</h2>
+							<p className="text-gray-600">
+								Explora todas las categorías disponibles en nuestras subastas
+							</p>
+						</div>
 
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-						{categories.map((category) => (
-							<div
-								key={category.name}
-								className="bg-white rounded-lg shadow-sm text-center group cursor-pointer hover:shadow-lg transition-shadow"
-							>
-								<div className="p-6">
-									<div
-										className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4`}
-									>
-										<category.icon className="w-8 h-8" />
+						<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+							{categories.map((category) => (
+								<div
+									key={category.name}
+									className="bg-white rounded-lg shadow-sm text-center group cursor-pointer hover:shadow-lg transition-shadow"
+								>
+									<div className="p-6">
+										<div
+											className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4`}
+										>
+											<category.icon className="w-8 h-8" />
+										</div>
+										<h3 className="font-semibold text-lg mb-2">{category.name}</h3>
+										<p className="text-[#5bcdb4] font-medium">{category.count}</p>
 									</div>
-									<h3 className="font-semibold text-lg mb-2">{category.name}</h3>
-									<p className="text-[#5bcdb4] font-medium">{category.count}</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</section>
+
+				{/* How it Works */}
+				<section className="py-16">
+					<div className="container mx-auto px-4">
+						<div className="text-center mb-12">
+							<h2 className="text-3xl font-bold text-gray-900 mb-4">¿Cómo Funciona?</h2>
+							<p className="text-gray-600">Participa en nuestras subastas en 3 simples pasos</p>
+						</div>
+
+						<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+							<div className="text-center">
+								<div className="w-16 h-16 bg-[#5bcdb4] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+									1
+								</div>
+								<h3 className="text-xl font-semibold mb-3">Regístrate</h3>
+								<p className="text-gray-600">
+									Crea tu cuenta gratuita y verifica tu identidad para participar en las subastas
+								</p>
+							</div>
+
+							<div className="text-center">
+								<div className="w-16 h-16 bg-[#5bcdb4] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+									2
+								</div>
+								<h3 className="text-xl font-semibold mb-3">Explora y Oferta</h3>
+								<p className="text-gray-600">
+									Busca productos de tu interés y realiza ofertas en tiempo real durante las
+									subastas
+								</p>
+							</div>
+
+							<div className="text-center">
+								<div className="w-16 h-16 bg-[#5bcdb4] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+									3
+								</div>
+								<h3 className="text-xl font-semibold mb-3">Gana y Compra</h3>
+								<p className="text-gray-600">
+									Si tu oferta es la ganadora, completa el pago y coordina la entrega del producto
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				{/* Trust Section */}
+				<section className="py-16 bg-[#5bcdb4] text-white">
+					<div className="container mx-auto px-4">
+						<div className="text-center mb-12">
+							<h2 className="text-3xl font-bold mb-4">¿Por Qué Elegirnos?</h2>
+							<p className="text-teal-100 max-w-2xl mx-auto">
+								Somos la plataforma de subastas más confiable de Ecuador
+							</p>
+						</div>
+
+						<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+							<div className="text-center">
+								<Shield className="w-12 h-12 mx-auto mb-4" />
+								<h3 className="text-xl font-semibold mb-3">Transacciones Seguras</h3>
+								<p className="text-teal-100">
+									Todas las transacciones están protegidas con tecnología de encriptación avanzada
+								</p>
+							</div>
+
+							<div className="text-center">
+								<Star className="w-12 h-12 mx-auto mb-4" />
+								<h3 className="text-xl font-semibold mb-3">Productos Verificados</h3>
+								<p className="text-teal-100">
+									Cada producto pasa por un proceso de verificación antes de ser subastado
+								</p>
+							</div>
+
+							<div className="text-center">
+								<Phone className="w-12 h-12 mx-auto mb-4" />
+								<h3 className="text-xl font-semibold mb-3">Soporte Especializado</h3>
+								<p className="text-teal-100">
+									Nuestro equipo de expertos te acompaña durante todo el proceso
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				{/* Footer */}
+				<footer className="bg-gray-900 text-white py-12">
+					<div className="container mx-auto px-4">
+						<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+							<div>
+								<div className="flex items-center space-x-2 mb-4">
+									<div className="w-8 h-8 bg-[#5bcdb4] rounded-lg flex items-center justify-center">
+										<Gavel className="w-4 h-4 text-white" />
+									</div>
+									<span className="text-xl font-bold">Compra Automática</span>
+								</div>
+								<p className="text-gray-400 mb-4">
+									La plataforma líder en Ecuador para subastas de autos siniestrados, usados y
+									productos diversos
+								</p>
+								<div className="flex space-x-4">
+									<Facebook className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+									<Instagram className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+									<Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
 								</div>
 							</div>
-						))}
-					</div>
-				</div>
-			</section>
 
-			{/* How it Works */}
-			<section className="py-16">
-				<div className="container mx-auto px-4">
-					<div className="text-center mb-12">
-						<h2 className="text-3xl font-bold text-gray-900 mb-4">¿Cómo Funciona?</h2>
-						<p className="text-gray-600">Participa en nuestras subastas en 3 simples pasos</p>
-					</div>
-
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-						<div className="text-center">
-							<div className="w-16 h-16 bg-[#5bcdb4] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-								1
+							<div>
+								<h4 className="font-semibold mb-4">Categorías</h4>
+								<ul className="space-y-2 text-gray-400">
+									<li>
+										<a href="#" className="hover:text-white">
+											Autos Siniestrados
+										</a>
+									</li>
+									<li>
+										<a href="#" className="hover:text-white">
+											Autos Usados
+										</a>
+									</li>
+									<li>
+										<a href="#" className="hover:text-white">
+											Tecnología
+										</a>
+									</li>
+									<li>
+										<a href="#" className="hover:text-white">
+											Electrodomésticos
+										</a>
+									</li>
+								</ul>
 							</div>
-							<h3 className="text-xl font-semibold mb-3">Regístrate</h3>
-							<p className="text-gray-600">
-								Crea tu cuenta gratuita y verifica tu identidad para participar en las subastas
-							</p>
-						</div>
 
-						<div className="text-center">
-							<div className="w-16 h-16 bg-[#5bcdb4] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-								2
+							<div>
+								<h4 className="font-semibold mb-4">Servicios</h4>
+								<ul className="space-y-2 text-gray-400">
+									<li>
+										<a href="#" className="hover:text-white">
+											Subastas en Vivo
+										</a>
+									</li>
+									<li>
+										<a href="#" className="hover:text-white">
+											Evaluación de Productos
+										</a>
+									</li>
+									<li>
+										<a href="#" className="hover:text-white">
+											Financiamiento
+										</a>
+									</li>
+									<li>
+										<a href="#" className="hover:text-white">
+											Logística
+										</a>
+									</li>
+								</ul>
 							</div>
-							<h3 className="text-xl font-semibold mb-3">Explora y Oferta</h3>
-							<p className="text-gray-600">
-								Busca productos de tu interés y realiza ofertas en tiempo real durante las subastas
-							</p>
-						</div>
 
-						<div className="text-center">
-							<div className="w-16 h-16 bg-[#5bcdb4] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-								3
-							</div>
-							<h3 className="text-xl font-semibold mb-3">Gana y Compra</h3>
-							<p className="text-gray-600">
-								Si tu oferta es la ganadora, completa el pago y coordina la entrega del producto
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			{/* Trust Section */}
-			<section className="py-16 bg-[#5bcdb4] text-white">
-				<div className="container mx-auto px-4">
-					<div className="text-center mb-12">
-						<h2 className="text-3xl font-bold mb-4">¿Por Qué Elegirnos?</h2>
-						<p className="text-teal-100 max-w-2xl mx-auto">
-							Somos la plataforma de subastas más confiable de Ecuador
-						</p>
-					</div>
-
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-						<div className="text-center">
-							<Shield className="w-12 h-12 mx-auto mb-4" />
-							<h3 className="text-xl font-semibold mb-3">Transacciones Seguras</h3>
-							<p className="text-teal-100">
-								Todas las transacciones están protegidas con tecnología de encriptación avanzada
-							</p>
-						</div>
-
-						<div className="text-center">
-							<Star className="w-12 h-12 mx-auto mb-4" />
-							<h3 className="text-xl font-semibold mb-3">Productos Verificados</h3>
-							<p className="text-teal-100">
-								Cada producto pasa por un proceso de verificación antes de ser subastado
-							</p>
-						</div>
-
-						<div className="text-center">
-							<Phone className="w-12 h-12 mx-auto mb-4" />
-							<h3 className="text-xl font-semibold mb-3">Soporte Especializado</h3>
-							<p className="text-teal-100">
-								Nuestro equipo de expertos te acompaña durante todo el proceso
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			{/* Footer */}
-			<footer className="bg-gray-900 text-white py-12">
-				<div className="container mx-auto px-4">
-					<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-						<div>
-							<div className="flex items-center space-x-2 mb-4">
-								<div className="w-8 h-8 bg-[#5bcdb4] rounded-lg flex items-center justify-center">
-									<Gavel className="w-4 h-4 text-white" />
-								</div>
-								<span className="text-xl font-bold">Compra Automática</span>
-							</div>
-							<p className="text-gray-400 mb-4">
-								La plataforma líder en Ecuador para subastas de autos siniestrados, usados y
-								productos diversos
-							</p>
-							<div className="flex space-x-4">
-								<Facebook className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-								<Instagram className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-								<Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-							</div>
-						</div>
-
-						<div>
-							<h4 className="font-semibold mb-4">Categorías</h4>
-							<ul className="space-y-2 text-gray-400">
-								<li>
-									<a href="#" className="hover:text-white">
-										Autos Siniestrados
-									</a>
-								</li>
-								<li>
-									<a href="#" className="hover:text-white">
-										Autos Usados
-									</a>
-								</li>
-								<li>
-									<a href="#" className="hover:text-white">
-										Tecnología
-									</a>
-								</li>
-								<li>
-									<a href="#" className="hover:text-white">
-										Electrodomésticos
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div>
-							<h4 className="font-semibold mb-4">Servicios</h4>
-							<ul className="space-y-2 text-gray-400">
-								<li>
-									<a href="#" className="hover:text-white">
-										Subastas en Vivo
-									</a>
-								</li>
-								<li>
-									<a href="#" className="hover:text-white">
-										Evaluación de Productos
-									</a>
-								</li>
-								<li>
-									<a href="#" className="hover:text-white">
-										Financiamiento
-									</a>
-								</li>
-								<li>
-									<a href="#" className="hover:text-white">
-										Logística
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div>
-							<h4 className="font-semibold mb-4">Contacto</h4>
-							<div className="space-y-2 text-gray-400">
-								<div className="flex items-center">
-									<Phone className="w-4 h-4 mr-2" />
-									<span>1800-SUBASTA</span>
-								</div>
-								<div className="flex items-center">
-									<Mail className="w-4 h-4 mr-2" />
-									<span>info@compraautomatica.com.ec</span>
-								</div>
-								<div className="flex items-center">
-									<MapPin className="w-4 h-4 mr-2" />
-									<span>Quito, Ecuador</span>
+							<div>
+								<h4 className="font-semibold mb-4">Contacto</h4>
+								<div className="space-y-2 text-gray-400">
+									<div className="flex items-center">
+										<Phone className="w-4 h-4 mr-2" />
+										<span>1800-SUBASTA</span>
+									</div>
+									<div className="flex items-center">
+										<Mail className="w-4 h-4 mr-2" />
+										<span>info@compraautomatica.com.ec</span>
+									</div>
+									<div className="flex items-center">
+										<MapPin className="w-4 h-4 mr-2" />
+										<span>Quito, Ecuador</span>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 
-					<div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-						<p>
-							&copy; {new Date().getFullYear()} Compra Automática. Todos los derechos reservados.
-						</p>
+						<div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+							<p>
+								&copy; {new Date().getFullYear()} Compra Automática. Todos los derechos reservados.
+							</p>
+						</div>
 					</div>
-				</div>
-			</footer>
-		</div>
+				</footer>
+			</div>
+			<ChatWidget
+				webhookUrl="https://iaconnectsolution.app.n8n.cloud/webhook/0a8a95d7-cd0a-4335-abbd-365a983716a7/chat"
+				route="general"
+				logo="https://aiconnect.flec-ec.com/aiconnect.png"
+				name="Compra Automática"
+				welcomeText="Empecemos un Chat con Compra automática AI"
+				subtitleWelcome="¿Tienes alguna pregunta? ¡Hablemos! Te ayudaremos en segundos."
+				responseTimeText="Hola!. ¿Estás listo para chatear con Compra automática AI?"
+				poweredByText="Powered by AI Connect Solutions"
+				poweredByLink="https://aiconnectsolutions.io/"
+				primaryColor="#5acbb2"
+				secondaryColor="#5acbb2"
+				backgroundColor="#fff"
+				backgroundColorSecondary="#fff"
+				fontColor="#000"
+			/>
+		</>
 	);
 };
