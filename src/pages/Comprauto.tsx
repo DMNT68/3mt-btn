@@ -546,7 +546,7 @@ export const Comprauto = () => {
 			<ChatWidget
 				webhookUrl="https://iaconnectsolution.app.n8n.cloud/webhook/0a8a95d7-cd0a-4335-abbd-365a983716a7/chat"
 				route="general"
-				logo="https://aiconnect.flec-ec.com/aiconnect.png"
+				logo="https://aiconnect.flec-ec.com/aiconnect.jpg"
 				name="Compra Automática"
 				welcomeText="Empecemos un Chat con Compra automática AI"
 				subtitleWelcome="¿Tienes alguna pregunta? ¡Hablemos! Te ayudaremos en segundos."
