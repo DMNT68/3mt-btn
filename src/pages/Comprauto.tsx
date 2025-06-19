@@ -161,7 +161,7 @@ export const Comprauto = () => {
 							}
 							isCalling={isCalling}
 							label={
-								isLoading ? 'Lamando...' : isCalling ? 'Detener llamada' : 'Pregunta a un experto'
+								isLoading ? 'Llamando...' : isCalling ? 'Detener llamada' : 'Pregunta a un experto'
 							}
 							onClick={isLoading ? () => {} : toggleCall}
 						/>
