@@ -9,7 +9,7 @@ const agentIdES = 'agent_23c0a869a6160a558f02ca51b2';
 const client: ClientAiConnect = 'aiconnect';
 
 export const AiConnectPage = () => {
-	const [selecLanguage, setSelecLanguage] = useState('en');
+	const [selecLanguage, setSelecLanguage] = useState('es');
 
 	// const queryParameters = new URLSearchParams(window.location.search);
 	// const language =
@@ -26,7 +26,7 @@ export const AiConnectPage = () => {
 
 	const textColling = selecLanguage === 'en' ? 'Calling...' : 'Llamando...';
 	const textStopCall = selecLanguage === 'en' ? 'Stop call' : 'Detener llamada';
-	const textAskAnExpert = selecLanguage === 'en' ? 'Ask an expert' : 'Preguntar a un experto';
+	const textAskAnExpert = selecLanguage === 'en' ? 'Ask an expert' : 'Prueba a nuestro agente IA';
 
 	return (
 		<>
@@ -40,8 +40,8 @@ export const AiConnectPage = () => {
 					className="select-dark"
 					onChange={(e) => setSelecLanguage(e.target.value)}
 				>
+					<option value="es">Español (es)</option>
 					<option value="en">English (en)</option>
-					<option value="es">Spanish (es)</option>
 				</select>
 			</div>
 			<div className="app-container app-container-aic">
