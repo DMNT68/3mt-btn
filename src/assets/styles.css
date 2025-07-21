@@ -48,6 +48,12 @@ body {
 	color: white;
 }
 
+.btn-startCall-universidad {
+	height: 50px;
+	background: #ff7e84ff;
+	color: white;
+}
+
 .btn-startCall-3mt:hover {
 	transform: scale(1.03);
 }

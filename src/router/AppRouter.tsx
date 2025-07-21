@@ -7,6 +7,7 @@ import { AiConnectRealEstatePage } from '../pages/AiConnectRealEstatePage';
 import { InmobiliariaJorge } from '../pages/InmobiliariaJorge';
 import { Comprauto } from '../pages/Comprauto';
 import { Abogado } from '../pages/Abogado';
+import { Universidad } from '../pages/Universidad';
 
 export const AppRouter = () => {
 	return (
@@ -19,6 +20,7 @@ export const AppRouter = () => {
 			<Route path="inmobiliaria" element={<InmobiliariaJorge />} />
 			<Route path="abogado" element={<Abogado />} />
 			<Route path="comprauto" element={<Comprauto />} />
+			<Route path="universidad" element={<Universidad />} />
 		</Routes>
 	);
 };
