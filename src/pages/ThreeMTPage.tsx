@@ -5,7 +5,7 @@ import { ClientAiConnect } from '../types';
 // import LiquidButton from '../components/LiquidButton/LiquidButton';
 import CallButton from '../components/CallButton';
 
-const agentId = 'agent_1ff50ebd05933bc0be855fb727';
+const agentId = 'agent_298f2b0de337af508f34c3776a';
 const client: ClientAiConnect = '3mt';
 
 export const ThreeMTPage = () => {
